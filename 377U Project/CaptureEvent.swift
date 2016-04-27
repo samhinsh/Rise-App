@@ -13,21 +13,13 @@ import Foundation
  * is happening in the world, and visual media can/should/has been collected to document it.
  * ============================================================================================*/
 
-/* Expected format:
-    "title" : "Who's Teaching Us",
-    "about" : "Who’s Teaching Us? raises awareness on the need for faculty diversity and support for marginalized studies and community centers on campus.",
-    "coordinates" : "37.429492, -122.169581",
-    "media" : "wtu1.jpg,wtu2.jpg,wtu3.jpg,wtu4.jpg,wtu5.jpg,wtu6.jpg,wtu7.jpg,wtu8.jpg",
-    "hashtag" : "#wtu"
- */
-
 class CaptureEvent {
-    var title: String = String()
-    var about: String = String()
-    var location: (latitude: Double, longitude: Double) = (Double(), Double())
-    var media: [String] = [String]()
-    var hashtag: String = String()
-    var mapPin: AnyObject?
+    var title: String = String() // event title
+    var about: String = String() // event description
+    var location: (latitude: Double, longitude: Double) = (Double(), Double()) // event location
+    var media: [String] = [String]() // event images and videos
+    var hashtag: String = String() // associated hashtag
+    var mapPin: AnyObject? // Map annotation pin (set and used in controller)
     
     convenience init(title: String,
                      about: String,
@@ -37,6 +29,7 @@ class CaptureEvent {
         
         ) {
         self.init()
+        self.title = title
         self.about = about
         self.location = location
         self.media = media

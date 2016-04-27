@@ -60,6 +60,7 @@ class CaptureEventDatabase {
                 )
                 
                 // append capture event to list
+                print("Adding event to database")
                 allCaptureEvents.append(newCaptureEvent) // append capture event
                 
             } else {
@@ -71,26 +72,22 @@ class CaptureEventDatabase {
     }
     
     /* private JSON parsing */
-    private func parseJSONDataIntoCaptureEvents(data: NSData?) -> [CaptureEvent] {
+    private func parseJSONDataIntoCaptureEvents(data: NSData?){
         do {
             let object = try NSJSONSerialization.JSONObjectWithData(data!, options: .AllowFragments) // serialize JSON
             if let dictionary = object as? [String: AnyObject] { // cast as Dictionary<String, AnyObject>
                 print("Successfully received JSON dictionary: \(dictionary)")
                 readJSONObject(dictionary)
             }
-            // TODO
-            return [CaptureEvent]()
             
         } catch {
             print("Could not parse JSON object")
         }
-        
-        return [CaptureEvent]()
     }
     
     /* public method */
     func fetchCaptureEvents(contentsOfURL: NSURL) {
         let data = NSData(contentsOfURL: contentsOfURL)
-        allCaptureEvents = parseJSONDataIntoCaptureEvents(data)
+        parseJSONDataIntoCaptureEvents(data)
     }
 }
