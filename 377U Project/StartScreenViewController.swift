@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 
-class StartScreenViewController: UIViewController, MKMapViewDelegate {
+@IBDesignable class StartScreenViewController: UIViewController, MKMapViewDelegate {
 
     var visibleCaptureEvents: [CaptureEvent]? { // currently displayed in the captureEventsTable and on the mapView
         didSet {

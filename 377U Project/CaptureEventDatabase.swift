@@ -14,6 +14,7 @@ class CaptureEventDatabase {
     var allCreatedCaptureEvents: [CaptureEvent]? // TODO: priority queue based on distance from location
     
     // TODO: Use iOS JSON parser
+    /*
     private var hardCodeDataBase = {
         "events" : [
             {
@@ -58,4 +59,5 @@ class CaptureEventDatabase {
             
             ]
         }
+        */
 }
