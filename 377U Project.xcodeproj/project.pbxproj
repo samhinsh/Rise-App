@@ -41,7 +41,7 @@
 /* Begin PBXFileReference section */
 		C235B8D31CD0762400EB4029 /* CaptureEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaptureEvent.swift; sourceTree = "<group>"; };
 		C235B8D71CD0924600EB4029 /* CaptureEventDatabase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaptureEventDatabase.swift; sourceTree = "<group>"; };
-		C2A4D8121CCC491C00FC6376 /* 377U Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "377U Project.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C2A4D8121CCC491C00FC6376 /* Rise.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rise.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2A4D8151CCC491C00FC6376 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C2A4D8171CCC491C00FC6376 /* StartScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartScreenViewController.swift; sourceTree = "<group>"; };
 		C2A4D81A1CCC491C00FC6376 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -97,7 +97,7 @@
 		C2A4D8131CCC491C00FC6376 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C2A4D8121CCC491C00FC6376 /* 377U Project.app */,
+				C2A4D8121CCC491C00FC6376 /* Rise.app */,
 				C2A4D8291CCC491C00FC6376 /* 377U ProjectTests.xctest */,
 				C2A4D8341CCC491C00FC6376 /* 377U ProjectUITests.xctest */,
 			);
@@ -165,7 +165,7 @@
 			);
 			name = "377U Project";
 			productName = "377U Project";
-			productReference = C2A4D8121CCC491C00FC6376 /* 377U Project.app */;
+			productReference = C2A4D8121CCC491C00FC6376 /* Rise.app */;
 			productType = "com.apple.product-type.application";
 		};
 		C2A4D8281CCC491C00FC6376 /* 377U ProjectTests */ = {
@@ -436,7 +436,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "edu.stanford.cs193p.samhinsh.-77U-Project";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Rise;
 			};
 			name = Debug;
 		};
@@ -448,7 +448,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "edu.stanford.cs193p.samhinsh.-77U-Project";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Rise;
 			};
 			name = Release;
 		};

@@ -24,9 +24,7 @@ import MapKit
         didSet {
             print("Displaying capture events: \(visibleCaptureEvents)")
             print("Displaying database: \(database!.allCaptureEvents)")
-            
-            // TODO - populate TableView
-            // TODO
+
             // clear map
             // clear events table
             
@@ -114,13 +112,6 @@ import MapKit
         
         // display available nearby CaptureEvents
         visibleCaptureEvents = getTrendingCaptureEvents() // TODO change
-        
-        // TODO: remove sample point
-//        point.coordinate = CLLocationCoordinate2D(latitude: 37.429492,
-//                                                  longitude: -122.169581)
-//        point.title = "Who's Teaching Us Rally"
-//        point.subtitle = "Garner equitable education"
-//        mapView.addAnnotation(point)
     }
 }
 
