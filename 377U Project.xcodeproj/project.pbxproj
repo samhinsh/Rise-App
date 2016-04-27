@@ -18,6 +18,7 @@
 		C2A4D82E1CCC491C00FC6376 /* _77U_ProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A4D82D1CCC491C00FC6376 /* _77U_ProjectTests.swift */; };
 		C2A4D8391CCC491C00FC6376 /* _77U_ProjectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A4D8381CCC491C00FC6376 /* _77U_ProjectUITests.swift */; };
 		C2A4D86E1CD04EC600FC6376 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A4D86D1CD04EC600FC6376 /* CameraView.swift */; };
+		C2E5B0EC1CD0B0D80096F491 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = C2E5B0EB1CD0B0D80096F491 /* data.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		C2A4D8381CCC491C00FC6376 /* _77U_ProjectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _77U_ProjectUITests.swift; sourceTree = "<group>"; };
 		C2A4D83A1CCC491C00FC6376 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C2A4D86D1CD04EC600FC6376 /* CameraView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
+		C2E5B0EB1CD0B0D80096F491 /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +110,7 @@
 				C2A4D8171CCC491C00FC6376 /* StartScreenViewController.swift */,
 				C235B8D31CD0762400EB4029 /* CaptureEvent.swift */,
 				C235B8D71CD0924600EB4029 /* CaptureEventDatabase.swift */,
+				C2E5B0EB1CD0B0D80096F491 /* data.json */,
 				C2A4D8191CCC491C00FC6376 /* Main.storyboard */,
 				C2A4D86D1CD04EC600FC6376 /* CameraView.swift */,
 				C2A4D8211CCC491C00FC6376 /* LaunchScreen.storyboard */,
@@ -255,6 +258,7 @@
 				C2A4D8231CCC491C00FC6376 /* LaunchScreen.storyboard in Resources */,
 				C2A4D8201CCC491C00FC6376 /* Assets.xcassets in Resources */,
 				C2A4D81B1CCC491C00FC6376 /* Main.storyboard in Resources */,
+				C2E5B0EC1CD0B0D80096F491 /* data.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

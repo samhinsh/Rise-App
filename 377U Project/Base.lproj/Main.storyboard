@@ -112,9 +112,9 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t6m-lW-ove">
-                                <rect key="frame" x="325" y="28" width="30" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <state key="normal" title="X"/>
+                                <rect key="frame" x="325" y="20" width="30" height="46"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                <state key="normal" title="×"/>
                                 <connections>
                                     <segue destination="BYZ-38-t0r" kind="show" animates="NO" id="rPo-rf-q6Q"/>
                                 </connections>
@@ -122,11 +122,11 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="bBl-u9-eeq" firstAttribute="centerX" secondItem="z8n-xh-ffq" secondAttribute="centerX" id="AKB-gn-HVE"/>
-                            <constraint firstItem="t6m-lW-ove" firstAttribute="top" secondItem="bSo-At-ch9" secondAttribute="bottom" constant="8" symbolic="YES" id="Pxl-Od-UQY"/>
-                            <constraint firstItem="bBl-u9-eeq" firstAttribute="centerY" secondItem="z8n-xh-ffq" secondAttribute="centerY" id="U5H-ey-idK"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="t6m-lW-ove" secondAttribute="trailing" constant="4" id="YkO-O0-yFY"/>
-                            <constraint firstItem="tJA-6d-fxf" firstAttribute="top" secondItem="t6m-lW-ove" secondAttribute="bottom" constant="609" id="dqe-LS-XaG"/>
+                            <constraint firstItem="tJA-6d-fxf" firstAttribute="top" secondItem="t6m-lW-ove" secondAttribute="bottom" constant="601" id="3a5-W8-vSL"/>
+                            <constraint firstItem="t6m-lW-ove" firstAttribute="top" secondItem="bSo-At-ch9" secondAttribute="bottom" id="NZk-FR-bJv"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="t6m-lW-ove" secondAttribute="trailing" constant="4" id="RxY-61-SY2"/>
+                            <constraint firstItem="bBl-u9-eeq" firstAttribute="centerX" secondItem="z8n-xh-ffq" secondAttribute="centerX" id="ovq-63-aSv"/>
+                            <constraint firstItem="bBl-u9-eeq" firstAttribute="centerY" secondItem="z8n-xh-ffq" secondAttribute="centerY" id="p3D-1G-SnR"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
