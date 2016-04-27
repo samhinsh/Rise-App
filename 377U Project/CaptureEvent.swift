@@ -14,11 +14,11 @@ import Foundation
  * ============================================================================================*/
 
 /* Expected format:
-     "title" : "Who's Teaching Us",
-     "about" : "Who’s Teaching Us? raises awareness on the need for faculty diversity and support for marginalized studies and community centers on campus.",
-     "coordinates" : "37.429492, -122.169581",
-     "media" : "wtu1.jpg,wtu2.jpg,wtu3.jpg,wtu4.jpg,wtu5.jpg,wtu6.jpg,wtu7.jpg,wtu8.jpg",
-     "hashtag" : "#wtu"
+    "title" : "Who's Teaching Us",
+    "about" : "Who’s Teaching Us? raises awareness on the need for faculty diversity and support for marginalized studies and community centers on campus.",
+    "coordinates" : "37.429492, -122.169581",
+    "media" : "wtu1.jpg,wtu2.jpg,wtu3.jpg,wtu4.jpg,wtu5.jpg,wtu6.jpg,wtu7.jpg,wtu8.jpg",
+    "hashtag" : "#wtu"
  */
 
 class CaptureEvent {
@@ -28,4 +28,18 @@ class CaptureEvent {
     var media: [String] = [String]()
     var hashtag: String = String()
     var mapPin: AnyObject?
+    
+    convenience init(title: String,
+                     about: String,
+                     location: (latitude: Double, longitude: Double),
+                     media: [String],
+                     hashtag: String
+        
+        ) {
+        self.init()
+        self.about = about
+        self.location = location
+        self.media = media
+        self.hashtag = hashtag
+    }
 }

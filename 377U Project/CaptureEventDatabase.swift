@@ -8,17 +8,66 @@
 
 import Foundation
 
+/* Expected JSON Format:
+ * "title" : "Who's Teaching Us",
+    "about" : "Who’s Teaching Us? raises awareness on the need for faculty diversity and support for marginalized studies and community centers on campus.",
+    "coordinates" : "37.429492, -122.169581",
+    "media" : "wtu1.jpg,wtu2.jpg,wtu3.jpg,wtu4.jpg,wtu5.jpg,wtu6.jpg,wtu7.jpg,wtu8.jpg",
+    "hashtag" : "#wtu"
+ */
+
 class CaptureEventDatabase {
     
     /* CaptureEvents */
-    var allCaptureEvents: [CaptureEvent]?
-    
+    var allCaptureEvents: [CaptureEvent] = [CaptureEvent]()
     var activeCaptureEvents: [CaptureEvent]? // TODO
     var expiredCaptureEvents: [CaptureEvent]? // TODO
     
     /* CaptureEvent specific JSON interpreting */
     func readJSONObject(dictionary: [String: AnyObject]) {
+        guard let captureEvents = dictionary["events"] as? [[String: AnyObject]]
+            else
+        {
+            return
+        }
         
+        for event in captureEvents {
+            guard let title = event["title"] as? String,
+                let about = event["about"] as? String,
+                let coordinates = event["coordinates"] as? String,
+                let media = event["media"] as? String,
+                let hashtag = event["hashtag"] as? String
+                else {
+                    print("Could not read dictionary")
+                    return
+            }
+            
+            let location = coordinates.componentsSeparatedByString(",").map{ Double($0) } // parse coords
+            
+            let lat = location[0]
+            let long = location[1]
+            
+            if lat != nil && long != nil {
+                
+                let mediaFileNames = media.componentsSeparatedByString(",") // parse array picture titles
+                
+                // create new capture event
+                let newCaptureEvent = CaptureEvent(title: title,
+                                                   about: about,
+                                                   location: (location[0]!, location[1]!),
+                                                   media: mediaFileNames,
+                                                   hashtag: hashtag
+                )
+                
+                // append capture event to list
+                allCaptureEvents.append(newCaptureEvent) // append capture event
+                
+            } else {
+                print("Location could not be extracted from JSON object")
+            }
+        }
+        
+        print("Capture Events received: \(allCaptureEvents)")
     }
     
     /* private JSON parsing */
