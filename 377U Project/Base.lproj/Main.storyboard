@@ -3,24 +3,71 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Start Screen View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="_77U_Project" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="StartScreenViewController" customModule="_77U_Project" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="n49-uc-i7z">
+                                <rect key="frame" x="0.0" y="0.0" width="387" height="231"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="231" id="Gf7-l9-a9d"/>
+                                </constraints>
+                            </mapView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="gH9-Ho-E1j">
+                                <rect key="frame" x="0.0" y="239" width="375" height="29"/>
+                                <segments>
+                                    <segment title="Nearest"/>
+                                    <segment title="Trending"/>
+                                </segments>
+                            </segmentedControl>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="20" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="9os-pf-x4K">
+                                <rect key="frame" x="0.0" y="283" width="375" height="318"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="318" id="1xb-g3-DuO"/>
+                                </constraints>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uuZ-Ku-aYk">
+                                <rect key="frame" x="157" y="607" width="58" height="52"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="n49-uc-i7z" secondAttribute="trailing" constant="-28" id="E8T-0r-zMg"/>
+                            <constraint firstItem="gH9-Ho-E1j" firstAttribute="leading" secondItem="9os-pf-x4K" secondAttribute="leading" id="NQC-h1-nRi"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="uuZ-Ku-aYk" secondAttribute="bottom" constant="8" symbolic="YES" id="Ov4-ZK-Xsi"/>
+                            <constraint firstItem="uuZ-Ku-aYk" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="157" id="PzK-q0-8Mx"/>
+                            <constraint firstAttribute="trailing" secondItem="gH9-Ho-E1j" secondAttribute="trailing" id="Q5O-mE-ntU"/>
+                            <constraint firstItem="uuZ-Ku-aYk" firstAttribute="top" secondItem="9os-pf-x4K" secondAttribute="bottom" constant="6" id="RdZ-5N-7aw"/>
+                            <constraint firstItem="gH9-Ho-E1j" firstAttribute="top" secondItem="n49-uc-i7z" secondAttribute="bottom" constant="8" symbolic="YES" id="VYa-Fd-8Ol"/>
+                            <constraint firstItem="n49-uc-i7z" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="XSy-J4-ZQv"/>
+                            <constraint firstItem="gH9-Ho-E1j" firstAttribute="trailing" secondItem="9os-pf-x4K" secondAttribute="trailing" id="coq-kR-Ajh"/>
+                            <constraint firstAttribute="trailing" secondItem="uuZ-Ku-aYk" secondAttribute="trailing" constant="160" id="hh1-Aa-12j"/>
+                            <constraint firstItem="n49-uc-i7z" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="oJJ-9j-ZIb"/>
+                            <constraint firstItem="9os-pf-x4K" firstAttribute="top" secondItem="gH9-Ho-E1j" secondAttribute="bottom" constant="16" id="vs3-Hb-aBX"/>
+                            <constraint firstItem="n49-uc-i7z" firstAttribute="leading" secondItem="gH9-Ho-E1j" secondAttribute="leading" id="ydt-RZ-Kus"/>
+                        </constraints>
                     </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="mapView" destination="n49-uc-i7z" id="Bee-WZ-3MB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="304.5" y="387.5"/>
         </scene>
     </scenes>
 </document>

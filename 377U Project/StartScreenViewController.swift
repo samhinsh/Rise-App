@@ -7,12 +7,19 @@
 //
 
 import UIKit
+import MapKit
 
-class ViewController: UIViewController {
+class StartScreenViewController: UIViewController, MKMapViewDelegate {
 
+    @IBOutlet weak var mapView: MKMapView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        
+        // display Map
+        
+        // display available nearby CaptureEvent's
     }
 
     override func didReceiveMemoryWarning() {
