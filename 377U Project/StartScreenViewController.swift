@@ -307,5 +307,21 @@ import MapKit
             captureEventsTable.deselectRowAtIndexPath(selectedRow!, animated: true)
         }
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let destinationVC = segue.destinationViewController
+        
+        guard let showEventVC = destinationVC as? CaptureDetailViewController,
+            let identifier = segue.identifier else { return }
+        
+        switch identifier {
+        case "Show Event":
+            if captureEventsTable.indexPathForSelectedRow != nil {
+                let selectedCaptureEvent = visibleCaptureEvents[captureEventsTable.indexPathForSelectedRow!.row] // get selected captureEvent from table
+                showEventVC.setModel(selectedCaptureEvent)
+            }
+        default: break
+        }
+    }
 }
 

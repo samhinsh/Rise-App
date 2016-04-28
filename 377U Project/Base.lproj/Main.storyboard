@@ -56,7 +56,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="FQN-Iv-8fb" kind="show" id="qcB-5a-bA3"/>
+                                            <segue destination="FQN-Iv-8fb" kind="show" identifier="Show Event" id="qcB-5a-bA3"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -117,7 +117,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="Nz2-KY-gau">
                     <connections>
-                        <segue destination="7GC-Si-y3O" kind="presentation" id="S19-zr-Myb"/>
+                        <segue destination="7GC-Si-y3O" kind="presentation" identifier="Register Event" id="S19-zr-Myb"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>

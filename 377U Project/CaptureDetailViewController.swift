@@ -9,10 +9,20 @@
 import UIKit
 
 class CaptureDetailViewController: UIViewController {
+    
+    // MARK: - Model
+    
+    private var thisEvent: CaptureEvent = CaptureEvent()
+    
+    func setModel(event: CaptureEvent) {
+        thisEvent = event
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.setNavigationBarHidden(false, animated: false)
+        
+        print("This event is: \(thisEvent.title)")
 
         // Do any additional setup after loading the view.
     }
