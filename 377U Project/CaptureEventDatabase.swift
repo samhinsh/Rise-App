@@ -8,29 +8,33 @@
 
 import Foundation
 
-/* Expected JSON Format:
- * "title" : "Who's Teaching Us",
+/* Expected dictionary format:
+ *  "title" : "Who's Teaching Us",
     "about" : "Who’s Teaching Us? raises awareness on the need for faculty diversity and support for marginalized studies and community centers on campus.",
     "coordinates" : "37.429492,-122.169581",
     "media" : "wtu1.jpg,wtu2.jpg,wtu3.jpg,wtu4.jpg,wtu5.jpg,wtu6.jpg,wtu7.jpg,wtu8.jpg",
     "hashtag" : "#wtu"
  */
 
-class CaptureEventDatabase {
+class CaptureEventDatabase
+{
     
     /* CaptureEvents */
     var allCaptureEvents: [CaptureEvent] = [CaptureEvent]()
     var activeCaptureEvents: [CaptureEvent]? // TODO
     var expiredCaptureEvents: [CaptureEvent]? // TODO
+    var newCaptureEvents: [CaptureEvent]? // TODO - captureEvents uploaded since last request
     
     /* CaptureEvent specific JSON interpreting 
      * Read all dictionary objects and create & store them in allCaptureEventsArray */
-    func readObjectsIntoCaptureEventArray(dictionary: [String: AnyObject]) {
+    private func readObjectsIntoCaptureEventArray(dictionary: [String: AnyObject])
+    {
         guard let captureEvents = dictionary["events"] as? [[String: AnyObject]]
             else {
             return
         }
         
+        // attempts to read CaptureEvents from each dictionary acquired from server
         for event in captureEvents {
             guard let title = event["title"] as? String,
                 let about = event["about"] as? String,
@@ -41,14 +45,11 @@ class CaptureEventDatabase {
                     print("Could not read dictionary")
                     return
             }
-            
             let location = coordinates.componentsSeparatedByString(",").map{ Double($0) } // parse coords
-            
             let lat = location[0]
             let long = location[1]
             
             if lat != nil && long != nil {
-                
                 let mediaFileNames = media.componentsSeparatedByString(",") // parse array picture titles
                 
                 // create new capture event
@@ -72,7 +73,8 @@ class CaptureEventDatabase {
     }
     
     /* private JSON parsing */
-    private func parseJSONDataIntoCaptureEvents(data: NSData?){
+    private func parseJSONDataIntoCaptureEvents(data: NSData?)
+    {
         do {
             let object = try NSJSONSerialization.JSONObjectWithData(data!, options: .AllowFragments) // serialize JSON
             if let dictionary = object as? [String: AnyObject] { // cast as Dictionary<String, AnyObject>
@@ -86,8 +88,12 @@ class CaptureEventDatabase {
     }
     
     /* public method */
-    func fetchCaptureEvents(contentsOfURL: NSURL) {
+    func fetchAllCaptureEvents(contentsOfURL: NSURL)
+    {
         let data = NSData(contentsOfURL: contentsOfURL)
         parseJSONDataIntoCaptureEvents(data)
     }
+    
+    /* TODO */
+    func fetchNewCaptureEvents(contentsOfURL: NSURL) {}
 }

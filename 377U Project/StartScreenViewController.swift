@@ -20,6 +20,15 @@ import MapKit
     // database that holds and fetches capture events from server
     private var database: CaptureEventDatabase?
     
+    /* expose revelant location */
+    @IBOutlet private weak var mapView: MKMapView!
+    
+    /* expose relevant capture events */
+    @IBOutlet private weak var captureEventsTable: UITableView!
+    
+    /* Camera button for IU */
+    @IBOutlet private weak var cameraButton: CameraView!
+    
     /* Capture events being displayed currently */
     private var visibleCaptureEvents =  [CaptureEvent]() { // currently displayed in the captureEventsTable and on the mapView
         didSet {
@@ -32,22 +41,10 @@ import MapKit
                 plotPinOnMap(event)
                 // TODO add event to events table
                 captureEventsTable.reloadData()
-                    // calls table view sections below
+                // calls table view sections below
             }
         }
     }
-    
-    /* expose revelant location */
-    @IBOutlet private weak var mapView: MKMapView!
-    
-    /* expose relevant capture events */
-    @IBOutlet private weak var captureEventsTable: UITableView!
-    
-    /* Camera button for IU */
-    @IBOutlet private weak var cameraButton: CameraView!
-    
-    // TODO: remove this test map annotation
-    var point: MKPointAnnotation = MKPointAnnotation()
     
     private func addMapPin(event: CaptureEvent)
     {
@@ -144,7 +141,7 @@ import MapKit
     private func setDatabase(url: NSURL)
     {
         database = CaptureEventDatabase()
-        database!.fetchCaptureEvents(url)
+        database!.fetchAllCaptureEvents(url)
         
     }
     
