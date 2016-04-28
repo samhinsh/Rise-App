@@ -22,7 +22,6 @@ import UIKit
     @IBOutlet private weak var eventDescription: UILabel!
     
     
-    
     private var eventDescriptionDisplayValue: String {
         get {
             if eventDescription.text != nil {
@@ -51,8 +50,8 @@ import UIKit
     private struct MediaBoard {
         
         // identifier of cells in MediaBoard
-        static let EventImageIdentifier = "EventImage"
-        static let EventVideoIdentifier = "EventVideo"
+        static let EventImageIdentifier = "Event Image"
+        static let EventVideoIdentifier = "Event Video"
     }
     
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {

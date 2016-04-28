@@ -203,14 +203,28 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="ASd-fy-wgw">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Event Image" id="ASd-fy-wgw" customClass="ImageCollectionViewCell" customModule="Rise" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8tq-Z3-pYk">
+                                                    <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
+                                                </imageView>
+                                            </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="8tq-Z3-pYk" secondAttribute="trailing" id="EfN-dq-N6r"/>
+                                            <constraint firstItem="8tq-Z3-pYk" firstAttribute="leading" secondItem="ASd-fy-wgw" secondAttribute="leading" id="fYB-sl-wVw"/>
+                                            <constraint firstItem="8tq-Z3-pYk" firstAttribute="top" secondItem="ASd-fy-wgw" secondAttribute="top" id="fvx-PB-qfZ"/>
+                                            <constraint firstAttribute="bottom" secondItem="8tq-Z3-pYk" secondAttribute="bottom" id="jkh-ln-V6G"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="imageView" destination="8tq-Z3-pYk" id="Yp8-hD-cpx"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -234,11 +248,45 @@
                     <connections>
                         <outlet property="eventCollectionView" destination="ypS-sh-pQw" id="0vl-oO-gLQ"/>
                         <outlet property="eventDescription" destination="Bz6-gb-vB7" id="tWJ-ut-Ji2"/>
+                        <segue destination="ZOC-54-fmk" kind="show" identifier="Show ExpandedImage" id="eI5-wb-Hwy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vQl-L1-oQ7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1610.5" y="61.5"/>
+        </scene>
+        <!--Expanded Image View Controller-->
+        <scene sceneID="PzQ-QS-yyW">
+            <objects>
+                <viewController id="ZOC-54-fmk" customClass="ExpandedImageViewController" customModule="Rise" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="FHE-fU-XTR"/>
+                        <viewControllerLayoutGuide type="bottom" id="kVs-zK-v78"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="cz8-Mz-Oeq">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dBO-WS-ghM">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="dBO-WS-ghM" secondAttribute="trailing" id="13W-fC-aLr"/>
+                            <constraint firstItem="dBO-WS-ghM" firstAttribute="bottom" secondItem="kVs-zK-v78" secondAttribute="top" id="8KC-3R-1md"/>
+                            <constraint firstItem="dBO-WS-ghM" firstAttribute="top" secondItem="cz8-Mz-Oeq" secondAttribute="top" id="8ys-I5-uuF"/>
+                            <constraint firstItem="dBO-WS-ghM" firstAttribute="leading" secondItem="cz8-Mz-Oeq" secondAttribute="leading" id="xjH-vf-GtW"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="imageView" destination="dBO-WS-ghM" id="wzA-jD-HG3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9Gg-jz-Ywy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2081.5" y="61.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Xmt-YS-c6G">

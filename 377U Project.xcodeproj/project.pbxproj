@@ -21,6 +21,8 @@
 		C2A4D86E1CD04EC600FC6376 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A4D86D1CD04EC600FC6376 /* CameraView.swift */; };
 		C2C2A31A1CD2875C002681A1 /* CaptureDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C2A3191CD2875C002681A1 /* CaptureDetailViewController.swift */; };
 		C2C2A31C1CD288D9002681A1 /* RegisterEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C2A31B1CD288D9002681A1 /* RegisterEventViewController.swift */; };
+		C2C2A31E1CD2A5C3002681A1 /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C2A31D1CD2A5C3002681A1 /* ImageCollectionViewCell.swift */; };
+		C2C2A3201CD2A890002681A1 /* ExpandedImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C2A31F1CD2A890002681A1 /* ExpandedImageViewController.swift */; };
 		C2E5B0EC1CD0B0D80096F491 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = C2E5B0EB1CD0B0D80096F491 /* data.json */; };
 /* End PBXBuildFile section */
 
@@ -62,6 +64,8 @@
 		C2A4D86D1CD04EC600FC6376 /* CameraView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		C2C2A3191CD2875C002681A1 /* CaptureDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaptureDetailViewController.swift; sourceTree = "<group>"; };
 		C2C2A31B1CD288D9002681A1 /* RegisterEventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterEventViewController.swift; sourceTree = "<group>"; };
+		C2C2A31D1CD2A5C3002681A1 /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		C2C2A31F1CD2A890002681A1 /* ExpandedImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpandedImageViewController.swift; sourceTree = "<group>"; };
 		C2E5B0EB1CD0B0D80096F491 /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -121,6 +125,8 @@
 				C25EC4CA1CD1ADEF003DEDCD /* CaptureEventTableViewController.swift */,
 				C2A4D8171CCC491C00FC6376 /* StartScreenViewController.swift */,
 				C2A4D8191CCC491C00FC6376 /* Main.storyboard */,
+				C2C2A31F1CD2A890002681A1 /* ExpandedImageViewController.swift */,
+				C2C2A31D1CD2A5C3002681A1 /* ImageCollectionViewCell.swift */,
 				C2C2A3191CD2875C002681A1 /* CaptureDetailViewController.swift */,
 				C2C2A31B1CD288D9002681A1 /* RegisterEventViewController.swift */,
 				C2A4D86C1CD034B300FC6376 /* Supporting Files */,
@@ -295,9 +301,11 @@
 				C235B8D81CD0924600EB4029 /* CaptureEventDatabase.swift in Sources */,
 				C235B8D41CD0762400EB4029 /* CaptureEvent.swift in Sources */,
 				C2A4D8181CCC491C00FC6376 /* StartScreenViewController.swift in Sources */,
+				C2C2A3201CD2A890002681A1 /* ExpandedImageViewController.swift in Sources */,
 				C2C2A31C1CD288D9002681A1 /* RegisterEventViewController.swift in Sources */,
 				C25EC4CB1CD1ADEF003DEDCD /* CaptureEventTableViewController.swift in Sources */,
 				C2A4D86E1CD04EC600FC6376 /* CameraView.swift in Sources */,
+				C2C2A31E1CD2A5C3002681A1 /* ImageCollectionViewCell.swift in Sources */,
 				C2A4D8161CCC491C00FC6376 /* AppDelegate.swift in Sources */,
 				C2C2A31A1CD2875C002681A1 /* CaptureDetailViewController.swift in Sources */,
 				C2A4D81E1CCC491C00FC6376 /* _77U_Project.xcdatamodeld in Sources */,
