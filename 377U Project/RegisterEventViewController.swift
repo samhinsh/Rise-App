@@ -8,11 +8,12 @@
 
 import UIKit
 
-@IBDesignable class RegisterEventViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    
-    @IBOutlet weak var helpLabel: UILabel!
+@IBDesignable class RegisterEventViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
     
     var didTouchRiseButton = false
+    var nearbyEvents: [CaptureEvent] = [CaptureEvent]()
+    
+    @IBOutlet weak var helpLabel: UILabel!
     
     /* text placeholder for image */
     @IBOutlet weak var picturePlaceholder: UILabel!
@@ -68,13 +69,34 @@ import UIKit
         dismissViewControllerAnimated(true, completion: nil)
     }
     
+    // MARK: - Set model
+    func setModel(events: [CaptureEvent]) {
+        nearbyEvents = events
+    }
+    
+    
     // MARK: - Image Picker Controller
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.setNavigationBarHidden(true, animated: true)
         
+        self.eventPicker.delegate = self
+        self.eventPicker.dataSource = self
+        
         // Do any additional setup after loading the view.
+    }
+    
+    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return nearbyEvents.count
+    }
+    
+    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return nearbyEvents[row].title
+    }
+    
+    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+        return 1
     }
     
     override func didReceiveMemoryWarning() {

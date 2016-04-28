@@ -311,17 +311,27 @@ import MapKit
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let destinationVC = segue.destinationViewController
         
-        guard let showEventVC = destinationVC as? CaptureDetailViewController,
-            let identifier = segue.identifier else { return }
-        
-        switch identifier {
-        case "Show Event":
-            if captureEventsTable.indexPathForSelectedRow != nil {
-                let selectedCaptureEvent = visibleCaptureEvents[captureEventsTable.indexPathForSelectedRow!.row] // get selected captureEvent from table
-                showEventVC.setModel(selectedCaptureEvent)
-                showEventVC.navigationItem.title = selectedCaptureEvent.title
+        if let showEventVC = destinationVC as? CaptureDetailViewController {
+            if let identifier = segue.identifier {
+                
+                switch identifier {
+                case "Show Event":
+                    if captureEventsTable.indexPathForSelectedRow != nil {
+                        let selectedCaptureEvent = visibleCaptureEvents[captureEventsTable.indexPathForSelectedRow!.row] // get selected captureEvent from table
+                        showEventVC.setModel(selectedCaptureEvent)
+                        showEventVC.navigationItem.title = selectedCaptureEvent.title
+                    }
+                default: break
+                }
             }
-        default: break
+        } else if let addToEventVC = destinationVC as? RegisterEventViewController {
+            if let identifier = segue.identifier {
+                switch identifier {
+                case "Add to Event" :
+                    addToEventVC.setModel(visibleCaptureEvents)
+                default: break
+                }
+            }
         }
     }
 }

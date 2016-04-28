@@ -117,7 +117,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="Nz2-KY-gau">
                     <connections>
-                        <segue destination="7GC-Si-y3O" kind="presentation" identifier="Register Event" id="S19-zr-Myb"/>
+                        <segue destination="7GC-Si-y3O" kind="presentation" identifier="Add to Event" id="S19-zr-Myb"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
