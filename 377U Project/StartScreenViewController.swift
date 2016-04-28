@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 
-@IBDesignable class StartScreenViewController: UIViewController, MKMapViewDelegate {
+@IBDesignable class StartScreenViewController: UIViewController, MKMapViewDelegate, UITableViewDataSource, UITableViewDelegate {
     
     // MARK - Controller
     
@@ -106,9 +106,18 @@ import MapKit
     
     // MARK: - UITableViewDataSource
     
-//    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-//        
-//    }
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 0
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 0
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
+        return cell
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -119,7 +128,8 @@ import MapKit
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        captureEventsTable.delegate = self
+        captureEventsTable.delegate = self // init table view
+        captureEventsTable.dataSource = self
         
         // set model database
         if appURL != nil {
