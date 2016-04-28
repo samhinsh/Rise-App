@@ -9,13 +9,13 @@
 import UIKit
 import MapKit
 
-@IBDesignable class StartScreenViewController: UIViewController, MKMapViewDelegate, UITableViewDataSource, UITableViewDelegate {
+@IBDesignable class StartScreenViewController: UIViewController, MKMapViewDelegate, UITableViewDataSource, UITableViewDelegate
+{
     
     // MARK - Controller
     
     // CaptureEvent server location content
-    private let appURL = NSBundle.mainBundle().URLForResource("data", withExtension: "json")
-    
+    private let appServerURL = NSBundle.mainBundle().URLForResource("data", withExtension: "json")
     
     // database that holds and fetches capture events from server
     private var database: CaptureEventDatabase?
@@ -25,14 +25,15 @@ import MapKit
         didSet {
             print("Displaying capture events: \(visibleCaptureEvents)")
             print("Displaying database: \(database!.allCaptureEvents)")
-
+            
             // TODO: clear map
             // TODO: clear events table
             for event in visibleCaptureEvents {
                 plotPinOnMap(event)
                 // TODO add event to events table
+                captureEventsTable.reloadData()
+                    // calls table view sections below
             }
-        
         }
     }
     
@@ -48,7 +49,8 @@ import MapKit
     // TODO: remove this test map annotation
     var point: MKPointAnnotation = MKPointAnnotation()
     
-    private func addMapPin(event: CaptureEvent) {
+    private func addMapPin(event: CaptureEvent)
+    {
         let pin = MKPointAnnotation()
         pin.coordinate = CLLocationCoordinate2D(latitude: event.location.latitude,
                                                 longitude: event.location.longitude)
@@ -77,7 +79,8 @@ import MapKit
     }
     
     /* plots an event on the map */
-    private func plotPinOnMap(event: CaptureEvent) {
+    private func plotPinOnMap(event: CaptureEvent)
+    {
         print("Pinning this event's mapPin: \(event)")
         if event.mapPin == nil {
             addMapPin(event)
@@ -87,7 +90,8 @@ import MapKit
     }
     
     /* returns array of capture events happening nearby to user */
-    private func getNearbyCaptureEvents() -> [CaptureEvent] {
+    private func getNearbyCaptureEvents() -> [CaptureEvent]
+    {
         // TODO: get events from database
         // TODO: sort/filter them for nearby
         // return them
@@ -96,7 +100,8 @@ import MapKit
     }
     
     /* returns array of trending capture events */
-    private func getTrendingCaptureEvents() -> [CaptureEvent] {
+    private func getTrendingCaptureEvents() -> [CaptureEvent]
+    {
         return database!.allCaptureEvents
         
         // TODO: develop scheme for trending
@@ -106,38 +111,53 @@ import MapKit
     
     // MARK: - UITableViewDataSource
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    /* next 3 methods are the heart of a dynamic table, get called on tableview.reloadData */
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int
+    {
+        return visibleCaptureEvents.count
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    {
         return 0
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
-    }
-    
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
+    {
         let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
+        
+        // configure the cell...
+        
         return cell
     }
     
-    override func didReceiveMemoryWarning() {
+    override func didReceiveMemoryWarning()
+    {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    // MARK - View
+    // MARK: - Model
     
-    override func viewDidLoad() {
+    /* ask CaptureEventDatabase to setup an internal db
+     * and download capture events from the specified server */
+    private func setDatabase(url: NSURL)
+    {
+        database = CaptureEventDatabase()
+        database!.fetchCaptureEvents(url)
+        
+    }
+    
+    
+    // MARK: - View
+    
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
         captureEventsTable.delegate = self // init table view
         captureEventsTable.dataSource = self
         
-        // set model database
-        if appURL != nil {
-            database = CaptureEventDatabase()
-            database!.fetchCaptureEvents(appURL!)
-        } else {
-            print("Improper server URL")
-        }
+        setDatabase(appServerURL!)
         
         // display Map w/ user location
         
