@@ -25,7 +25,7 @@ import MapKit
     private let locationManager = CLLocationManager()
     
     // map zoom factor
-    private let mapZoom = 0.035
+    private let mapZoom = 0.02
     
     // zoom to country
     private var defaultZoom = MKCoordinateRegion()
@@ -298,6 +298,11 @@ import MapKit
         } else {
             visibleCaptureEvents = getTrendingCaptureEvents()
         }
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        print("Main screen will appear!")
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
     }
 }
 

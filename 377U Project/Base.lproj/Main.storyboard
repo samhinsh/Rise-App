@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="hZd-P6-hQM">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -103,6 +103,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="n49-uc-i7z" secondAttribute="trailing" constant="-28" id="ubh-mS-cWf"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="Cu5-vc-nqT"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="cameraButton" destination="uuZ-Ku-aYk" id="pll-eF-5Wp"/>
@@ -118,12 +119,12 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="304.5" y="387.5"/>
+            <point key="canvasLocation" x="1116.5" y="387.5"/>
         </scene>
-        <!--View Controller-->
+        <!--Register Event View Controller-->
         <scene sceneID="gMV-Dp-EVC">
             <objects>
-                <viewController id="7GC-Si-y3O" sceneMemberID="viewController">
+                <viewController id="7GC-Si-y3O" customClass="RegisterEventViewController" customModule="Rise" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="bSo-At-ch9"/>
                         <viewControllerLayoutGuide type="bottom" id="tJA-6d-fxf"/>
@@ -132,35 +133,76 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This will be the camera screen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bBl-u9-eeq">
-                                <rect key="frame" x="71" y="323" width="232" height="21"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t6m-lW-ove">
+                                <rect key="frame" x="325" y="20" width="30" height="46"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="46" id="gtV-Sh-I1o"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                <state key="normal" title="×"/>
+                                <connections>
+                                    <segue destination="hZd-P6-hQM" kind="show" animates="NO" id="rPo-rf-q6Q"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This will be the event registration screen" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bBl-u9-eeq">
+                                <rect key="frame" x="7" y="322" width="361" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t6m-lW-ove">
-                                <rect key="frame" x="325" y="20" width="30" height="46"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="45"/>
-                                <state key="normal" title="×"/>
-                                <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" animates="NO" id="rPo-rf-q6Q"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="tJA-6d-fxf" firstAttribute="top" secondItem="t6m-lW-ove" secondAttribute="bottom" constant="601" id="3a5-W8-vSL"/>
-                            <constraint firstItem="t6m-lW-ove" firstAttribute="top" secondItem="bSo-At-ch9" secondAttribute="bottom" id="NZk-FR-bJv"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="t6m-lW-ove" secondAttribute="trailing" constant="4" id="RxY-61-SY2"/>
-                            <constraint firstItem="bBl-u9-eeq" firstAttribute="centerX" secondItem="z8n-xh-ffq" secondAttribute="centerX" id="ovq-63-aSv"/>
-                            <constraint firstItem="bBl-u9-eeq" firstAttribute="centerY" secondItem="z8n-xh-ffq" secondAttribute="centerY" id="p3D-1G-SnR"/>
+                            <constraint firstItem="t6m-lW-ove" firstAttribute="top" secondItem="bSo-At-ch9" secondAttribute="bottom" id="Byi-qX-cr9"/>
+                            <constraint firstItem="tJA-6d-fxf" firstAttribute="top" secondItem="bBl-u9-eeq" secondAttribute="bottom" constant="321" id="G1I-jC-P2T"/>
+                            <constraint firstItem="bBl-u9-eeq" firstAttribute="centerY" secondItem="z8n-xh-ffq" secondAttribute="centerY" id="tOb-UN-Jcg"/>
+                            <constraint firstItem="bBl-u9-eeq" firstAttribute="centerX" secondItem="z8n-xh-ffq" secondAttribute="centerX" id="vXM-Fu-jwA"/>
+                            <constraint firstItem="bBl-u9-eeq" firstAttribute="leading" secondItem="z8n-xh-ffq" secondAttribute="leadingMargin" constant="-9" id="wLK-mb-wNT"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="t6m-lW-ove" secondAttribute="trailing" constant="4" id="x8e-D5-Ngi"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u30-Dc-vEx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="781.5" y="387.5"/>
+            <point key="canvasLocation" x="1593.5" y="387.5"/>
+        </scene>
+        <!--Capture Detail View Controller-->
+        <scene sceneID="owz-L5-6w9">
+            <objects>
+                <viewController id="FQN-Iv-8fb" customClass="CaptureDetailViewController" customModule="Rise" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="wyA-qc-xND"/>
+                        <viewControllerLayoutGuide type="bottom" id="XZ2-Pf-3tV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="L9y-xg-o1z">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vQl-L1-oQ7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2116.5" y="387.5"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Xmt-YS-c6G">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="hZd-P6-hQM" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="EKf-aP-Mh8">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="jud-dA-r5N"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Na5-jE-GPG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="304" y="387"/>
         </scene>
     </scenes>
 </document>
