@@ -180,9 +180,26 @@
                     <view key="view" contentMode="scaleToFill" id="L9y-xg-o1z">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Bz6-gb-vB7">
+                                <rect key="frame" x="20" y="72" width="335" height="84"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="XZ2-Pf-3tV" firstAttribute="top" secondItem="Bz6-gb-vB7" secondAttribute="bottom" constant="511" id="ejO-fU-GC2"/>
+                            <constraint firstItem="Bz6-gb-vB7" firstAttribute="centerX" secondItem="L9y-xg-o1z" secondAttribute="centerX" id="jep-G4-2hP"/>
+                            <constraint firstItem="Bz6-gb-vB7" firstAttribute="leading" secondItem="L9y-xg-o1z" secondAttribute="leadingMargin" constant="4" id="mvt-7O-jcM"/>
+                            <constraint firstItem="Bz6-gb-vB7" firstAttribute="top" secondItem="wyA-qc-xND" secondAttribute="bottom" constant="8" symbolic="YES" id="qD4-Rr-B3J"/>
+                        </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="eventDescription" destination="Bz6-gb-vB7" id="tWJ-ut-Ji2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vQl-L1-oQ7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -191,7 +208,7 @@
         <!--Navigation Controller-->
         <scene sceneID="Xmt-YS-c6G">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="hZd-P6-hQM" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hZd-P6-hQM" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="EKf-aP-Mh8">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>

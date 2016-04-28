@@ -319,6 +319,7 @@ import MapKit
             if captureEventsTable.indexPathForSelectedRow != nil {
                 let selectedCaptureEvent = visibleCaptureEvents[captureEventsTable.indexPathForSelectedRow!.row] // get selected captureEvent from table
                 showEventVC.setModel(selectedCaptureEvent)
+                showEventVC.navigationItem.title = selectedCaptureEvent.title
             }
         default: break
         }

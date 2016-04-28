@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RegisterEventViewController: UIViewController {
+@IBDesignable class RegisterEventViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
