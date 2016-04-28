@@ -75,7 +75,10 @@ import MapKit
         pin.coordinate = CLLocationCoordinate2D(latitude: event.location.latitude,
                                                 longitude: event.location.longitude)
         // set the attributes for this Map pin
-        pin.title = event.title
+        pin.title = event.title + " " + getDistanceFromHereOrEmptyString(locationManager,
+                                                                         latitude: event.location.latitude,
+                                                                         longitude: event.location.longitude
+        )
         print(pin.title)
         pin.subtitle = event.hashtag + ": " + event.about // event.hashtag
         event.mapPin = pin
@@ -176,11 +179,13 @@ import MapKit
     
     // MARK: - Location Delegate methods
     
+    /* Zoom to worldview */
     private func zoomToCountry()
     {
         self.mapView.setRegion(defaultZoom, animated: true)
     }
     
+    /* Zoom to user location given manager */
     private func zoomToUserLocation(manager: CLLocationManager)
     {
         guard manager.location != nil else { return }
@@ -194,6 +199,31 @@ import MapKit
         
         // bring map to the desired region
         self.mapView.setRegion(region, animated: true)
+    }
+    
+    func getDistanceFromHereOrEmptyString(manager: CLLocationManager, latitude: CLLocationDegrees, longitude: CLLocationDegrees ) -> String {
+        let distance = distanceFromHereToLocation(locationManager, latitude: latitude, longitude: longitude)
+        if distance != nil {
+            return distance!
+        }
+        
+        return ""
+    }
+    
+    func distanceFromHereToLocation(manager: CLLocationManager, latitude: CLLocationDegrees, longitude: CLLocationDegrees ) -> String? {
+        
+        // get the distance in meters
+        let distanceToHereFromCurrentLocation = manager.location?.distanceFromLocation(CLLocation(
+            latitude: latitude,
+            longitude: longitude
+            )
+        )
+        
+        guard distanceToHereFromCurrentLocation != nil else { return nil }
+        
+        // convert to miles
+        let distanceInMiles = Double(distanceToHereFromCurrentLocation! * 0.000621371)
+        return "(" + String(format:"%.1f", distanceInMiles) + " mi)"
     }
     
     func zoomToUserLocation(manager: CLLocationManager, didUpdateLocations locations: [CLLocation])
