@@ -22,13 +22,13 @@ import MapKit
     
     
     // User location manager
-    let locationManager = CLLocationManager()
+    private let locationManager = CLLocationManager()
     
     // map zoom factor
-    let mapZoom = 0.035
+    private let mapZoom = 0.035
     
     // zoom to country
-    var defaultZoom = MKCoordinateRegion()
+    private var defaultZoom = MKCoordinateRegion()
     
     /* expose revelant location */
     @IBOutlet private weak var mapView: MKMapView!
@@ -40,7 +40,7 @@ import MapKit
     @IBOutlet private weak var cameraButton: CameraView!
     
     /* Segmented control displaying 'nearby' and 'trending' */
-    @IBOutlet weak var captureEventDisplayTab: UISegmentedControl!
+    @IBOutlet private weak var captureEventDisplayTab: UISegmentedControl!
     
     private var tabDisplay: String {
         get {
@@ -151,7 +151,7 @@ import MapKit
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return visibleCaptureEvents.count
+        return 0 // TODO: visibleCaptureEvents.count
     }
     
     
@@ -166,12 +166,12 @@ import MapKit
     
     // MARK: - Location Delegate methods
     
-    func zoomToCountry()
+    private func zoomToCountry()
     {
         self.mapView.setRegion(defaultZoom, animated: true)
     }
     
-    func zoomToUserLocation(manager: CLLocationManager)
+    private func zoomToUserLocation(manager: CLLocationManager)
     {
         guard manager.location != nil else { return }
         
