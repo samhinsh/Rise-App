@@ -23,6 +23,8 @@ import UIKit
     
     var eventImages: [String] = [String]()
     
+    var imageArray: [UIImage] = [UIImage]()
+    
     
     private var eventDescriptionDisplayValue: String {
         get {
@@ -48,6 +50,17 @@ import UIKit
         
         eventImages = thisEvent.media
         
+        // convert all names to images
+        for imageName in eventImages {
+            print("Adding image with name \(imageName)")
+            let image = UIImage(named: imageName)
+            if image != nil {
+                imageArray.append(image!)
+            } else {
+                imageArray.append(UIImage())
+            }
+        }
+        
         
         
     }
@@ -70,10 +83,10 @@ import UIKit
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(MediaBoard.EventImageIdentifier, forIndexPath: indexPath)
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(MediaBoard.EventImageIdentifier, forIndexPath: indexPath) as! ImageCollectionViewCell
         
         // configure the cell...
-        let imageName = self.thisEvent.media[indexPath.row]
+        cell.imageView?.image = imageArray[indexPath.row]
         
         // get NSImage from imagename
         // set image of cell
