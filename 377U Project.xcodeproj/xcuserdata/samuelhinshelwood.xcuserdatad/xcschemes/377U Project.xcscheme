@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "C2A4D8111CCC491C00FC6376"
-               BuildableName = "377U Project.app"
+               BuildableName = "Rise.app"
                BlueprintName = "377U Project"
                ReferencedContainer = "container:377U Project.xcodeproj">
             </BuildableReference>
@@ -53,7 +53,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C2A4D8111CCC491C00FC6376"
-            BuildableName = "377U Project.app"
+            BuildableName = "Rise.app"
             BlueprintName = "377U Project"
             ReferencedContainer = "container:377U Project.xcodeproj">
          </BuildableReference>
@@ -76,7 +76,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C2A4D8111CCC491C00FC6376"
-            BuildableName = "377U Project.app"
+            BuildableName = "Rise.app"
             BlueprintName = "377U Project"
             ReferencedContainer = "container:377U Project.xcodeproj">
          </BuildableReference>
@@ -95,7 +95,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C2A4D8111CCC491C00FC6376"
-            BuildableName = "377U Project.app"
+            BuildableName = "Rise.app"
             BlueprintName = "377U Project"
             ReferencedContainer = "container:377U Project.xcodeproj">
          </BuildableReference>

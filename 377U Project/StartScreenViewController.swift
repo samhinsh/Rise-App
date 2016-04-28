@@ -9,12 +9,13 @@
 import UIKit
 import MapKit
 
-@IBDesignable class StartScreenViewController: UIViewController, MKMapViewDelegate {
+@IBDesignable class StartScreenViewController: UIViewController, MKMapViewDelegate, UITableViewDelegate {
     
     // MARK - Controller
     
     // CaptureEvent server location content
     private let appURL = NSBundle.mainBundle().URLForResource("data", withExtension: "json")
+    
     
     // database that holds and fetches capture events from server
     private var database: CaptureEventDatabase?
@@ -25,16 +26,10 @@ import MapKit
             print("Displaying capture events: \(visibleCaptureEvents)")
             print("Displaying database: \(database!.allCaptureEvents)")
 
-            // clear map
-            // clear events table
-            
+            // TODO: clear map
+            // TODO: clear events table
             for event in visibleCaptureEvents {
-                // pin event to map
-                if event.mapPin == nil {
-                    addMapPin(event)
-                }
-                mapView.addAnnotation(event.mapPin as! MKPointAnnotation)
-                
+                plotPinOnMap(event)
                 // TODO add event to events table
             }
         
@@ -75,20 +70,38 @@ import MapKit
             
         case 1: // 'trending'
             print("Displaying trending events")
-            // TODO displayTrendingCaptureEvents()
+            visibleCaptureEvents = getNearbyCaptureEvents()
             
         default: break;
         }
     }
     
+    /* plots an event on the map */
+    private func plotPinOnMap(event: CaptureEvent) {
+        print("Pinning this event's mapPin: \(event)")
+        if event.mapPin == nil {
+            addMapPin(event)
+        }
+        
+        mapView.addAnnotation(event.mapPin as! MKPointAnnotation)
+    }
+    
     /* returns array of capture events happening nearby to user */
-    private func getNearbyCaptureEvents() {
-        // TODO
+    private func getNearbyCaptureEvents() -> [CaptureEvent] {
+        // TODO: get events from database
+        // TODO: sort/filter them for nearby
+        // return them
+        
+        return [CaptureEvent]()
     }
     
     /* returns array of trending capture events */
     private func getTrendingCaptureEvents() -> [CaptureEvent] {
         return database!.allCaptureEvents
+        
+        // TODO: develop scheme for trending
+        // get/sort from database
+        // return "trending" events
     }
     
     override func didReceiveMemoryWarning() {
@@ -100,6 +113,7 @@ import MapKit
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        captureEventsTable.delegate = self
         
         // set model database
         if appURL != nil {

@@ -11,7 +11,7 @@ import Foundation
 /* Expected JSON Format:
  * "title" : "Who's Teaching Us",
     "about" : "Who’s Teaching Us? raises awareness on the need for faculty diversity and support for marginalized studies and community centers on campus.",
-    "coordinates" : "37.429492, -122.169581",
+    "coordinates" : "37.429492,-122.169581",
     "media" : "wtu1.jpg,wtu2.jpg,wtu3.jpg,wtu4.jpg,wtu5.jpg,wtu6.jpg,wtu7.jpg,wtu8.jpg",
     "hashtag" : "#wtu"
  */
@@ -23,11 +23,11 @@ class CaptureEventDatabase {
     var activeCaptureEvents: [CaptureEvent]? // TODO
     var expiredCaptureEvents: [CaptureEvent]? // TODO
     
-    /* CaptureEvent specific JSON interpreting */
-    func readJSONObject(dictionary: [String: AnyObject]) {
+    /* CaptureEvent specific JSON interpreting 
+     * Read all dictionary objects and create & store them in allCaptureEventsArray */
+    func readObjectsIntoCaptureEventArray(dictionary: [String: AnyObject]) {
         guard let captureEvents = dictionary["events"] as? [[String: AnyObject]]
-            else
-        {
+            else {
             return
         }
         
@@ -77,7 +77,7 @@ class CaptureEventDatabase {
             let object = try NSJSONSerialization.JSONObjectWithData(data!, options: .AllowFragments) // serialize JSON
             if let dictionary = object as? [String: AnyObject] { // cast as Dictionary<String, AnyObject>
                 print("Successfully received JSON dictionary: \(dictionary)")
-                readJSONObject(dictionary)
+                readObjectsIntoCaptureEventArray(dictionary)
             }
             
         } catch {
