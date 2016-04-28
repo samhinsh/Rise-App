@@ -300,7 +300,12 @@ import MapKit
     
     override func viewWillAppear(animated: Bool) {
         print("Main screen will appear!")
-        self.navigationController?.setNavigationBarHidden(true, animated: false)
+        self.navigationController?.setNavigationBarHidden(true, animated: false) // hide navbar
+        
+        let selectedRow = captureEventsTable.indexPathForSelectedRow
+        if selectedRow != nil { // deselect selected row
+            captureEventsTable.deselectRowAtIndexPath(selectedRow!, animated: true)
+        }
     }
 }
 
