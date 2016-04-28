@@ -138,7 +138,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t6m-lW-ove">
                                 <rect key="frame" x="325" y="20" width="30" height="46"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="46" id="gtV-Sh-I1o"/>
+                                    <constraint firstAttribute="height" constant="46" id="SIa-gf-phm"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="45"/>
                                 <state key="normal" title="×"/>
@@ -146,24 +146,37 @@
                                     <segue destination="hZd-P6-hQM" kind="show" animates="NO" id="rPo-rf-q6Q"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This will be the event registration screen" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bBl-u9-eeq">
-                                <rect key="frame" x="7" y="322" width="361" height="24"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1hx-id-yig">
+                                <rect key="frame" x="20" y="20" width="35" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="35" id="f6Y-On-15L"/>
+                                    <constraint firstAttribute="height" constant="35" id="oeP-cL-CdC"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="35"/>
+                                <state key="normal" title="✼"/>
+                                <connections>
+                                    <action selector="touchedRiseButton:" destination="7GC-Si-y3O" eventType="touchUpInside" id="Ufh-f5-rvY"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="⇠Take a photo!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JQg-dj-pal">
+                                <rect key="frame" x="58" y="28" width="119" height="28"/>
+                                <fontDescription key="fontDescription" type="italicSystem" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="t6m-lW-ove" firstAttribute="top" secondItem="bSo-At-ch9" secondAttribute="bottom" id="Byi-qX-cr9"/>
-                            <constraint firstItem="tJA-6d-fxf" firstAttribute="top" secondItem="bBl-u9-eeq" secondAttribute="bottom" constant="321" id="G1I-jC-P2T"/>
-                            <constraint firstItem="bBl-u9-eeq" firstAttribute="centerY" secondItem="z8n-xh-ffq" secondAttribute="centerY" id="tOb-UN-Jcg"/>
-                            <constraint firstItem="bBl-u9-eeq" firstAttribute="centerX" secondItem="z8n-xh-ffq" secondAttribute="centerX" id="vXM-Fu-jwA"/>
-                            <constraint firstItem="bBl-u9-eeq" firstAttribute="leading" secondItem="z8n-xh-ffq" secondAttribute="leadingMargin" constant="-9" id="wLK-mb-wNT"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="t6m-lW-ove" secondAttribute="trailing" constant="4" id="x8e-D5-Ngi"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="t6m-lW-ove" secondAttribute="trailing" constant="4" id="8ds-p0-soj"/>
+                            <constraint firstItem="1hx-id-yig" firstAttribute="leading" secondItem="z8n-xh-ffq" secondAttribute="leadingMargin" constant="4" id="Gec-MP-TKU"/>
+                            <constraint firstItem="1hx-id-yig" firstAttribute="top" secondItem="bSo-At-ch9" secondAttribute="bottom" id="H5H-el-8YM"/>
+                            <constraint firstItem="1hx-id-yig" firstAttribute="top" secondItem="t6m-lW-ove" secondAttribute="top" id="j6D-mZ-N5m"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="helpLabel" destination="JQg-dj-pal" id="p5L-Co-kex"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u30-Dc-vEx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

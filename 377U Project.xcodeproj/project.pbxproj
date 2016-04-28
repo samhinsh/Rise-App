@@ -123,11 +123,11 @@
 				C235B8D31CD0762400EB4029 /* CaptureEvent.swift */,
 				C235B8D71CD0924600EB4029 /* CaptureEventDatabase.swift */,
 				C25EC4CA1CD1ADEF003DEDCD /* CaptureEventTableViewController.swift */,
-				C2A4D8171CCC491C00FC6376 /* StartScreenViewController.swift */,
-				C2A4D8191CCC491C00FC6376 /* Main.storyboard */,
 				C2C2A31F1CD2A890002681A1 /* ExpandedImageViewController.swift */,
 				C2C2A31D1CD2A5C3002681A1 /* ImageCollectionViewCell.swift */,
 				C2C2A3191CD2875C002681A1 /* CaptureDetailViewController.swift */,
+				C2A4D8171CCC491C00FC6376 /* StartScreenViewController.swift */,
+				C2A4D8191CCC491C00FC6376 /* Main.storyboard */,
 				C2C2A31B1CD288D9002681A1 /* RegisterEventViewController.swift */,
 				C2A4D86C1CD034B300FC6376 /* Supporting Files */,
 			);
