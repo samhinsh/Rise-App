@@ -22,10 +22,10 @@ import MapKit
     
     
     // User location manager
-    let locationManager = CLLocationManager()
+    private let locationManager = CLLocationManager()
     
     // map zoom factor
-    let mapZoom = 0.035
+    private let mapZoom = 0.035
     
     // zoom to country
     var defaultZoom = MKCoordinateRegion()
@@ -37,10 +37,10 @@ import MapKit
     @IBOutlet private weak var captureEventsTable: UITableView!
     
     /* Camera button for IU */
-    @IBOutlet private weak var cameraButton: CameraView!
+    @IBOutlet private weak var riseButton: CameraView!
     
     /* Segmented control displaying 'nearby' and 'trending' */
-    @IBOutlet weak var captureEventDisplayTab: UISegmentedControl!
+    @IBOutlet private weak var captureEventDisplayTab: UISegmentedControl!
     
     private var tabDisplay: String {
         get {
@@ -144,16 +144,20 @@ import MapKit
     
     // MARK: - UITableViewDataSource
     
+    private struct CaptureBoardCell {
+        
+    }
+    
     /* next 3 methods are the heart of a dynamic table, get called on tableview.reloadData */
     func numberOfSectionsInTableView(tableView: UITableView) -> Int
     {
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return visibleCaptureEvents.count
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
-    {
-        return 0
-    }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
@@ -166,12 +170,12 @@ import MapKit
     
     // MARK: - Location Delegate methods
     
-    func zoomToCountry()
+    private func zoomToCountry()
     {
         self.mapView.setRegion(defaultZoom, animated: true)
     }
     
-    func zoomToUserLocation(manager: CLLocationManager)
+    private func zoomToUserLocation(manager: CLLocationManager)
     {
         guard manager.location != nil else { return }
         
