@@ -36,8 +36,6 @@ import MapKit
     /* expose relevant capture events */
     @IBOutlet private weak var captureEventsTable: UITableView!
     
-    /* Camera button for IU */
-    @IBOutlet private weak var cameraButton: CameraView!
     
     /* Segmented control displaying 'nearby' and 'trending' */
     @IBOutlet private weak var captureEventDisplayTab: UISegmentedControl!

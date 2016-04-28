@@ -55,6 +55,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="FQN-Iv-8fb" kind="show" id="qcB-5a-bA3"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -64,7 +67,7 @@
                                     <constraint firstAttribute="height" constant="256" id="hEn-De-zUD"/>
                                 </constraints>
                             </mapView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uuZ-Ku-aYk" customClass="CameraView" customModule="Rise" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uuZ-Ku-aYk">
                                 <rect key="frame" x="0.0" y="615" width="375" height="52"/>
                                 <color key="backgroundColor" red="0.51372549019607838" green="0.67450980392156867" blue="0.87058823529411766" alpha="1" colorSpace="calibratedRGB"/>
                                 <gestureRecognizers/>
@@ -106,7 +109,6 @@
                     <navigationItem key="navigationItem" id="Cu5-vc-nqT"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
-                        <outlet property="cameraButton" destination="uuZ-Ku-aYk" id="pll-eF-5Wp"/>
                         <outlet property="captureEventDisplayTab" destination="gH9-Ho-E1j" id="0zH-zG-bM3"/>
                         <outlet property="captureEventsTable" destination="9os-pf-x4K" id="7jm-rn-Nx1"/>
                         <outlet property="mapView" destination="n49-uc-i7z" id="Bee-WZ-3MB"/>
@@ -115,7 +117,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="Nz2-KY-gau">
                     <connections>
-                        <segue destination="7GC-Si-y3O" kind="show" identifier="Start Camera" id="kq3-5A-icG"/>
+                        <segue destination="7GC-Si-y3O" kind="presentation" id="S19-zr-Myb"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
@@ -165,7 +167,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u30-Dc-vEx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1593.5" y="387.5"/>
+            <point key="canvasLocation" x="1610.5" y="819.5"/>
         </scene>
         <!--Capture Detail View Controller-->
         <scene sceneID="owz-L5-6w9">
@@ -184,7 +186,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vQl-L1-oQ7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2116.5" y="387.5"/>
+            <point key="canvasLocation" x="1610.5" y="61.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Xmt-YS-c6G">
