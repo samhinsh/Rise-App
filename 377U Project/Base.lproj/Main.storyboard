@@ -90,6 +90,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="cameraButton" destination="uuZ-Ku-aYk" id="pll-eF-5Wp"/>
+                        <outlet property="captureEventDisplayTab" destination="gH9-Ho-E1j" id="0zH-zG-bM3"/>
                         <outlet property="captureEventsTable" destination="9os-pf-x4K" id="mg9-1p-ZLp"/>
                         <outlet property="mapView" destination="n49-uc-i7z" id="Bee-WZ-3MB"/>
                     </connections>

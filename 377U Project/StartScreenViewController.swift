@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 
-@IBDesignable class StartScreenViewController: UIViewController, MKMapViewDelegate, UITableViewDataSource, UITableViewDelegate
+@IBDesignable class StartScreenViewController: UIViewController, MKMapViewDelegate, UITableViewDataSource, UITableViewDelegate, CLLocationManagerDelegate
 {
     
     // MARK - Controller
@@ -20,6 +20,13 @@ import MapKit
     // database that holds and fetches capture events from server
     private var database: CaptureEventDatabase?
     
+    
+    // User location manager
+    let locationManager = CLLocationManager()
+    
+    // map zoom factor
+    let mapZoom = 0.03
+    
     /* expose revelant location */
     @IBOutlet private weak var mapView: MKMapView!
     
@@ -29,20 +36,33 @@ import MapKit
     /* Camera button for IU */
     @IBOutlet private weak var cameraButton: CameraView!
     
+    /* Segmented control displaying 'nearby' and 'trending' */
+    @IBOutlet weak var captureEventDisplayTab: UISegmentedControl!
+    
+    private var tabDisplay: String {
+        get {
+            switch captureEventDisplayTab.selectedSegmentIndex {
+            case 0: return "nearby"
+            case 1: return "trending"
+            default: return "undefined"
+            }
+        }
+    }
+    
     /* Capture events being displayed currently */
-    private var visibleCaptureEvents =  [CaptureEvent]() { // currently displayed in the captureEventsTable and on the mapView
+    private var visibleCaptureEvents =  [CaptureEvent]()
+        {
         didSet {
-            print("Displaying capture events: \(visibleCaptureEvents)")
-            print("Displaying database: \(database!.allCaptureEvents)")
+            print("Displaying visible capture events: \(visibleCaptureEvents)")
+            print("CaptureEvent Database: \(database!.allCaptureEvents)")
             
-            // TODO: clear map
-            // TODO: clear events table
+            clearPinsFromMap(true)
+            
             for event in visibleCaptureEvents {
                 plotPinOnMap(event)
-                // TODO add event to events table
-                captureEventsTable.reloadData()
-                // calls table view sections below
             }
+            
+            captureEventsTable.reloadData() // TODO add event to events table
         }
     }
     
@@ -58,23 +78,6 @@ import MapKit
         event.mapPin = pin
     }
     
-    /* Selector showing 'nearest' or 'trending' CaptureEvents has changed
-     * Display appropriate CaptureEvents in the table */
-    @IBAction private func captureEventDisplayChanged(sender: UISegmentedControl)
-    {
-        switch sender.selectedSegmentIndex {
-        case 0: // 'nearest'
-            print("Displaying events nearest to you")
-            visibleCaptureEvents = getTrendingCaptureEvents()
-            
-        case 1: // 'trending'
-            print("Displaying trending events")
-            visibleCaptureEvents = getNearbyCaptureEvents()
-            
-        default: break;
-        }
-    }
-    
     /* plots an event on the map */
     private func plotPinOnMap(event: CaptureEvent)
     {
@@ -84,6 +87,16 @@ import MapKit
         }
         
         mapView.addAnnotation(event.mapPin as! MKPointAnnotation)
+    }
+    
+    /* Remove pins from map */
+    private func clearPinsFromMap(removeUserLocation: Bool) {
+        if removeUserLocation {
+            let annotationsToRemove = mapView.annotations.filter { $0 !== mapView.userLocation }
+            mapView.removeAnnotations( annotationsToRemove )
+        } else {
+            mapView.removeAnnotations(mapView.annotations)
+        }
     }
     
     /* returns array of capture events happening nearby to user */
@@ -104,6 +117,23 @@ import MapKit
         // TODO: develop scheme for trending
         // get/sort from database
         // return "trending" events
+    }
+    
+    /* Selector showing 'nearby' or 'trending' CaptureEvents has changed
+     * Display appropriate CaptureEvents in the table */
+    @IBAction private func captureEventDisplayChanged(sender: UISegmentedControl)
+    {
+        switch sender.selectedSegmentIndex {
+        case 0: // 'nearby'
+            print("Displaying events nearest to you")
+            visibleCaptureEvents = getTrendingCaptureEvents()
+            
+        case 1: // 'trending'
+            print("Displaying trending events")
+            visibleCaptureEvents = getNearbyCaptureEvents()
+            
+        default: break;
+        }
     }
     
     // MARK: - UITableViewDataSource
@@ -128,6 +158,51 @@ import MapKit
         return cell
     }
     
+    // MARK: - Location Delegate methods
+    
+    func zoomToUserLocation(manager: CLLocationManager)
+    {
+        guard manager.location != nil else { return }
+        let lastLocation = manager.location
+        
+        let center = CLLocationCoordinate2D(latitude: lastLocation!.coordinate.latitude, longitude: lastLocation!.coordinate.longitude)
+        
+        // create circle for map to zoom to (1, 1)
+        let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: mapZoom, longitudeDelta: mapZoom))
+        
+        // bring map to the desired region
+        self.mapView.setRegion(region, animated: true)
+    }
+    
+    func zoomToUserLocation(manager: CLLocationManager, didUpdateLocations locations: [CLLocation])
+    {
+        let location = locations.last
+        
+        guard location != nil else { return }
+        
+        let center = CLLocationCoordinate2D(latitude: location!.coordinate.latitude, longitude: location!.coordinate.longitude)
+        
+        // create circle for map to zoom to (1, 1)
+        let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: mapZoom, longitudeDelta: mapZoom))
+        
+        // bring map to the desired region
+        self.mapView.setRegion(region, animated: true)
+    }
+    
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation])
+    {
+        // zoom to user location only if 'nearby' tab selected
+        if tabDisplay == "nearby" {
+            zoomToUserLocation(manager, didUpdateLocations: locations)
+        }
+        self.locationManager.stopUpdatingLocation()
+    }
+    
+    func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
+        print("Location errors: \(error.localizedDescription)")
+    }
+    
+    
     override func didReceiveMemoryWarning()
     {
         super.didReceiveMemoryWarning()
@@ -151,12 +226,21 @@ import MapKit
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        captureEventsTable.delegate = self // init table view
-        captureEventsTable.dataSource = self
+        self.captureEventsTable.delegate = self // init table view
+        self.captureEventsTable.dataSource = self
+        
+        self.locationManager.delegate = self // init location
+        self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        self.locationManager.requestWhenInUseAuthorization()
+        self.locationManager.startUpdatingLocation()
+        
+        mapView.showsUserLocation = true // display user location
+        
+        if tabDisplay == "nearby" {
+            zoomToUserLocation(locationManager)
+        }
         
         setDatabase(appServerURL!)
-        
-        // display Map w/ user location
         
         // display available nearby CaptureEvents
         visibleCaptureEvents = getTrendingCaptureEvents() // TODO change
