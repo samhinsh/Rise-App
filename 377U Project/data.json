@@ -4,7 +4,7 @@
             "title" : "Black Lives Matter Rally",
             "about" : "#BLM is a call to action to the virulent anti-Black racism that permeates our society. It is rooted in the experiences of Black people in this country who actively resist our de-humanization.",
             "coordinates" : "37.424428,-122.169929",
-            "media" : "blm1.jpg,blm2.jpg, blm3.jpg,blm4.jpg,blm5.jpg,blm6.jpg,blm7.jpg,blm8.jpg,blm9.jpg",
+            "media" : "blm1,blm2, blm3,blm4,blm5",
             "hashtag" : "#BlackLivesMatter"
         },
         
@@ -12,7 +12,7 @@
             "title" : "Who's Teaching Us",
             "about" : "Who’s Teaching Us is a rally to raise awareness for the need of faculty diversity and support for marginalized studies and community centers on campus.",
             "coordinates" : "37.429492,-122.169581",
-            "media" : "wtu1.jpg,wtu2.jpg,wtu3.jpg,wtu4.jpg,wtu5.jpg,wtu6.jpg,wtu7.jpg,wtu8.jpg",
+            "media" : "wtu1,wtu2,wtu3,wtu4,wtu5,wtu6",
             "hashtag" : "#StanfordWTU"
         },
 
@@ -20,7 +20,7 @@
             "title" : "Fossil Free Stanford",
             "about" : "Movement calling on Stanford University to freeze new fossil fuel investments and fully divest from fossil fuels within the next five years.",
             "coordinates" : "37.427554,-122.169357",
-            "media" : "dfc1.jpg,dfc2.jpg,dfc3.jpg,dfc4.jpg,dfc5.jpg,dfc6.jpg,dfc7.jpg,dfc8.jpg",
+            "media" : "dfc1,dfc2,dfc3,dfc4",
             "hashtag" : "#FossilFreeStanford"
         },
         

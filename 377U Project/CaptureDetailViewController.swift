@@ -21,6 +21,8 @@ import UIKit
     /* Description box at the top of the screen */
     @IBOutlet private weak var eventDescription: UILabel!
     
+    var eventImages: [String] = [String]()
+    
     
     private var eventDescriptionDisplayValue: String {
         get {
@@ -42,6 +44,11 @@ import UIKit
     func unpackEvent() {
         print("This event is: \(thisEvent.title)")
         eventDescriptionDisplayValue = thisEvent.about
+        print("Event media: \(thisEvent.media)")
+        
+        eventImages = thisEvent.media
+        
+        
         
     }
     
@@ -79,6 +86,8 @@ import UIKit
         self.navigationController?.setNavigationBarHidden(false, animated: false)
         self.eventCollectionView.delegate = self
         self.eventCollectionView.dataSource = self
+        
+        self.eventCollectionView.backgroundColor = UIColor.whiteColor()
         
         unpackEvent()
         
