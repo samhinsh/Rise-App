@@ -8,7 +8,7 @@
         <!--Start Screen View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="StartScreenViewController" customModule="_77U_Project" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="StartScreenViewController" customModule="Rise" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -38,7 +38,7 @@
                                     <constraint firstAttribute="height" constant="256" id="hEn-De-zUD"/>
                                 </constraints>
                             </mapView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uuZ-Ku-aYk" customClass="CameraView" customModule="_77U_Project" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uuZ-Ku-aYk" customClass="CameraView" customModule="Rise" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="615" width="375" height="52"/>
                                 <color key="backgroundColor" red="0.51372549019607838" green="0.67450980392156867" blue="0.87058823529411766" alpha="1" colorSpace="calibratedRGB"/>
                                 <gestureRecognizers/>

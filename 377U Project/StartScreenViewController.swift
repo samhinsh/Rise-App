@@ -57,9 +57,10 @@ import MapKit
         let pin = MKPointAnnotation()
         pin.coordinate = CLLocationCoordinate2D(latitude: event.location.latitude,
                                                 longitude: event.location.longitude)
+        // set the attributes for this Map pin
         pin.title = event.title
         print(pin.title)
-        // pin.subtitle = event.about
+        pin.subtitle = event.hashtag
         event.mapPin = pin
     }
     
