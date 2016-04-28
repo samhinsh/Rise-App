@@ -196,6 +196,7 @@
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ypS-sh-pQw">
                                 <rect key="frame" x="20" y="164" width="335" height="483"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="r1h-Xr-cg3">
                                     <size key="itemSize" width="160" height="160"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -248,7 +249,7 @@
                     <connections>
                         <outlet property="eventCollectionView" destination="ypS-sh-pQw" id="0vl-oO-gLQ"/>
                         <outlet property="eventDescription" destination="Bz6-gb-vB7" id="tWJ-ut-Ji2"/>
-                        <segue destination="ZOC-54-fmk" kind="show" identifier="Show ExpandedImage" id="eI5-wb-Hwy"/>
+                        <segue destination="ZOC-54-fmk" kind="show" identifier="Show ExpandedImage" id="78j-6h-u2g"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vQl-L1-oQ7" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -267,7 +268,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dBO-WS-ghM">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dBO-WS-ghM">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                         </subviews>

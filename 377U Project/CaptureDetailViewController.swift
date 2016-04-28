@@ -43,6 +43,7 @@ import UIKit
         thisEvent = event
     }
     
+    // set instance properties, display images in this event
     func unpackEvent() {
         print("This event is: \(thisEvent.title)")
         eventDescriptionDisplayValue = thisEvent.about
@@ -60,9 +61,6 @@ import UIKit
                 imageArray.append(UIImage())
             }
         }
-        
-        
-        
     }
     
     // MARK: - UICollectionViewDataSource
@@ -94,13 +92,15 @@ import UIKit
         return cell
     }
     
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        performSegueWithIdentifier("Show ExpandedImage", sender: self)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.setNavigationBarHidden(false, animated: false)
         self.eventCollectionView.delegate = self
         self.eventCollectionView.dataSource = self
-        
-        self.eventCollectionView.backgroundColor = UIColor.whiteColor()
         
         unpackEvent()
         
@@ -112,15 +112,25 @@ import UIKit
         // Dispose of any resources that can be recreated.
     }
     
-    
-    /*
      // MARK: - Navigation
      
      // In a storyboard-based application, you will often want to do a little preparation before navigation
      override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
+        
+        if segue.identifier == "Show ExpandedImage" {
+            let indexPaths = self.eventCollectionView!.indexPathsForSelectedItems()
+            
+            if(indexPaths != nil){
+                let indexPath = indexPaths![0]
+            
+                // TODO: !-safe
+                if let vc = segue.destinationViewController as? ExpandedImageViewController {
+                    
+                    vc.incomingImage = imageArray[indexPath.row]
+                }
+            }
+        }
+    
      }
-     */
     
 }

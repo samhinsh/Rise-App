@@ -11,10 +11,16 @@ import UIKit
 class ExpandedImageViewController: UIViewController {
 
     /* the expanded image */
-    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet private weak var imageView: UIImageView!
+    
+    var incomingImage: UIImage?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if(incomingImage != nil){
+            imageView.image = incomingImage
+        }
 
         // Do any additional setup after loading the view.
     }
