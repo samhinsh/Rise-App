@@ -25,7 +25,10 @@ import MapKit
     let locationManager = CLLocationManager()
     
     // map zoom factor
-    let mapZoom = 0.03
+    let mapZoom = 0.035
+    
+    // zoom to country
+    var defaultZoom = MKCoordinateRegion()
     
     /* expose revelant location */
     @IBOutlet private weak var mapView: MKMapView!
@@ -106,7 +109,7 @@ import MapKit
         // TODO: sort/filter them for nearby
         // return them
         
-        return [CaptureEvent]()
+        return getTrendingCaptureEvents()
     }
     
     /* returns array of trending capture events */
@@ -126,11 +129,14 @@ import MapKit
         switch sender.selectedSegmentIndex {
         case 0: // 'nearby'
             print("Displaying events nearest to you")
-            visibleCaptureEvents = getTrendingCaptureEvents()
+            visibleCaptureEvents = getNearbyCaptureEvents()
+            zoomToUserLocation(locationManager)
+            
             
         case 1: // 'trending'
             print("Displaying trending events")
-            visibleCaptureEvents = getNearbyCaptureEvents()
+            visibleCaptureEvents = getTrendingCaptureEvents()
+            zoomToCountry()
             
         default: break;
         }
@@ -160,9 +166,15 @@ import MapKit
     
     // MARK: - Location Delegate methods
     
+    func zoomToCountry()
+    {
+        self.mapView.setRegion(defaultZoom, animated: true)
+    }
+    
     func zoomToUserLocation(manager: CLLocationManager)
     {
         guard manager.location != nil else { return }
+        
         let lastLocation = manager.location
         
         let center = CLLocationCoordinate2D(latitude: lastLocation!.coordinate.latitude, longitude: lastLocation!.coordinate.longitude)
@@ -220,12 +232,14 @@ import MapKit
         
     }
     
-    
     // MARK: - View
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        
+        defaultZoom = mapView.region // save map general zoom
+        
         self.captureEventsTable.delegate = self // init table view
         self.captureEventsTable.dataSource = self
         
