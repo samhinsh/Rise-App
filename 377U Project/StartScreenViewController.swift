@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 
-@IBDesignable class StartScreenViewController: UIViewController, MKMapViewDelegate, UITableViewDelegate {
+@IBDesignable class StartScreenViewController: UIViewController, MKMapViewDelegate {
     
     // MARK - Controller
     
@@ -104,6 +104,12 @@ import MapKit
         // return "trending" events
     }
     
+    // MARK: - UITableViewDataSource
+    
+//    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+//        
+//    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -113,7 +119,7 @@ import MapKit
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        captureEventsTable.delegate = self
+//        captureEventsTable.delegate = self
         
         // set model database
         if appURL != nil {

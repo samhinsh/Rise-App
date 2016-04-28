@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		C235B8D41CD0762400EB4029 /* CaptureEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C235B8D31CD0762400EB4029 /* CaptureEvent.swift */; };
 		C235B8D81CD0924600EB4029 /* CaptureEventDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C235B8D71CD0924600EB4029 /* CaptureEventDatabase.swift */; };
+		C25EC4CB1CD1ADEF003DEDCD /* CaptureEventTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25EC4CA1CD1ADEF003DEDCD /* CaptureEventTableViewController.swift */; };
 		C2A4D8161CCC491C00FC6376 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A4D8151CCC491C00FC6376 /* AppDelegate.swift */; };
 		C2A4D8181CCC491C00FC6376 /* StartScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A4D8171CCC491C00FC6376 /* StartScreenViewController.swift */; };
 		C2A4D81B1CCC491C00FC6376 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2A4D8191CCC491C00FC6376 /* Main.storyboard */; };
@@ -41,6 +42,7 @@
 /* Begin PBXFileReference section */
 		C235B8D31CD0762400EB4029 /* CaptureEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaptureEvent.swift; sourceTree = "<group>"; };
 		C235B8D71CD0924600EB4029 /* CaptureEventDatabase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaptureEventDatabase.swift; sourceTree = "<group>"; };
+		C25EC4CA1CD1ADEF003DEDCD /* CaptureEventTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaptureEventTableViewController.swift; sourceTree = "<group>"; };
 		C2A4D8121CCC491C00FC6376 /* Rise.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rise.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2A4D8151CCC491C00FC6376 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C2A4D8171CCC491C00FC6376 /* StartScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartScreenViewController.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				C2A4D86D1CD04EC600FC6376 /* CameraView.swift */,
 				C235B8D31CD0762400EB4029 /* CaptureEvent.swift */,
 				C235B8D71CD0924600EB4029 /* CaptureEventDatabase.swift */,
+				C25EC4CA1CD1ADEF003DEDCD /* CaptureEventTableViewController.swift */,
 				C2A4D8171CCC491C00FC6376 /* StartScreenViewController.swift */,
 				C2A4D8191CCC491C00FC6376 /* Main.storyboard */,
 				C2A4D86C1CD034B300FC6376 /* Supporting Files */,
@@ -286,6 +289,7 @@
 				C235B8D81CD0924600EB4029 /* CaptureEventDatabase.swift in Sources */,
 				C235B8D41CD0762400EB4029 /* CaptureEvent.swift in Sources */,
 				C2A4D8181CCC491C00FC6376 /* StartScreenViewController.swift in Sources */,
+				C25EC4CB1CD1ADEF003DEDCD /* CaptureEventTableViewController.swift in Sources */,
 				C2A4D86E1CD04EC600FC6376 /* CameraView.swift in Sources */,
 				C2A4D8161CCC491C00FC6376 /* AppDelegate.swift in Sources */,
 				C2A4D81E1CCC491C00FC6376 /* _77U_Project.xcdatamodeld in Sources */,
