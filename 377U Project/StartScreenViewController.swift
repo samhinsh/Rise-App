@@ -77,7 +77,7 @@ import MapKit
         // set the attributes for this Map pin
         pin.title = event.title
         print(pin.title)
-        pin.subtitle = event.hashtag
+        pin.subtitle = event.hashtag + ": " + event.about // event.hashtag
         event.mapPin = pin
     }
     
@@ -144,6 +144,12 @@ import MapKit
     
     // MARK: - UITableViewDataSource
     
+    private struct CaptureBoard {
+        
+        // identifier of cells in CaptureBoard (captureEventsTable)
+        static let CaptureEventCellIdentifier = "CaptureEvent"
+    }
+    
     /* next 3 methods are the heart of a dynamic table, get called on tableview.reloadData */
     func numberOfSectionsInTableView(tableView: UITableView) -> Int
     {
@@ -157,7 +163,7 @@ import MapKit
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier(CaptureBoard.CaptureEventCellIdentifier, forIndexPath: indexPath)
         
         // configure the cell...
         
