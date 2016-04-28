@@ -105,17 +105,17 @@ import MapKit
     /* returns array of capture events happening nearby to user */
     private func getNearbyCaptureEvents() -> [CaptureEvent]
     {
+        return database!.allCaptureEvents
+        
         // TODO: get events from database
         // TODO: sort/filter them for nearby
         // return them
-        
-        return getTrendingCaptureEvents()
     }
     
     /* returns array of trending capture events */
     private func getTrendingCaptureEvents() -> [CaptureEvent]
     {
-        return database!.allCaptureEvents
+        return Array(database!.allCaptureEvents[0...1])
         
         // TODO: develop scheme for trending
         // get/sort from database
@@ -157,7 +157,7 @@ import MapKit
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0 // TODO: visibleCaptureEvents.count
+        return visibleCaptureEvents.count
     }
     
     
@@ -166,6 +166,10 @@ import MapKit
         let cell = tableView.dequeueReusableCellWithIdentifier(CaptureBoard.CaptureEventCellIdentifier, forIndexPath: indexPath)
         
         // configure the cell...
+        let captureEvent = visibleCaptureEvents[indexPath.row]
+        
+        cell.textLabel?.text = captureEvent.title
+        cell.detailTextLabel?.text = captureEvent.about
         
         return cell
     }
@@ -243,6 +247,7 @@ import MapKit
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        setDatabase(appServerURL!)
         
         defaultZoom = mapView.region // save map general zoom
         
@@ -256,14 +261,13 @@ import MapKit
         
         mapView.showsUserLocation = true // display user location
         
-        if tabDisplay == "nearby" {
-            zoomToUserLocation(locationManager)
-        }
-        
-        setDatabase(appServerURL!)
-        
         // display available nearby CaptureEvents
-        visibleCaptureEvents = getTrendingCaptureEvents() // TODO change
+        if tabDisplay == "nearby" {
+            visibleCaptureEvents = getNearbyCaptureEvents()
+            zoomToUserLocation(locationManager)
+        } else {
+            visibleCaptureEvents = getTrendingCaptureEvents()
+        }
     }
 }
 
