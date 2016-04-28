@@ -232,6 +232,7 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="eventCollectionView" destination="ypS-sh-pQw" id="0vl-oO-gLQ"/>
                         <outlet property="eventDescription" destination="Bz6-gb-vB7" id="tWJ-ut-Ji2"/>
                     </connections>
                 </viewController>

@@ -8,14 +8,20 @@
 
 import UIKit
 
-@IBDesignable class CaptureDetailViewController: UIViewController {
+@IBDesignable class CaptureDetailViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
     // MARK: - Model
     
+    /* The CaptureEvent this class is representing*/
     private var thisEvent: CaptureEvent = CaptureEvent()
+    
+    /* Event media collection view */
+    @IBOutlet weak var eventCollectionView: UICollectionView!
     
     /* Description box at the top of the screen */
     @IBOutlet private weak var eventDescription: UILabel!
+    
+    
     
     private var eventDescriptionDisplayValue: String {
         get {
@@ -40,9 +46,40 @@ import UIKit
         
     }
     
+    // MARK: - UICollectionViewDataSource
+    
+    private struct MediaBoard {
+        
+        // identifier of cells in MediaBoard
+        static let EventImageIdentifier = "EventImage"
+        static let EventVideoIdentifier = "EventVideo"
+    }
+    
+    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return thisEvent.media.count
+    }
+    
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(MediaBoard.EventImageIdentifier, forIndexPath: indexPath)
+        
+        // configure the cell...
+        let imageName = self.thisEvent.media[indexPath.row]
+        
+        // get NSImage from imagename
+        // set image of cell
+        
+        return cell
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.setNavigationBarHidden(false, animated: false)
+        self.eventCollectionView.delegate = self
+        self.eventCollectionView.dataSource = self
         
         unpackEvent()
         
