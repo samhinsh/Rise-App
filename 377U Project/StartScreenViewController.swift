@@ -323,7 +323,7 @@ import MapKit
                 default: break
                 }
             }
-        } else if let addToEventVC = destinationVC as? RegisterEventViewController {
+        } else if let addToEventVC = destinationVC as? CameraScreenViewController {
             if let identifier = segue.identifier {
                 switch identifier {
                 case "Add to Event" :

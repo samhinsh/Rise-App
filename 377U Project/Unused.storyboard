@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Camera Screen View Controller-->
+        <scene sceneID="JFP-6Q-mwE">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WvO-gR-GiB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="6WJ-TM-sY9" customClass="CameraScreenViewController" customModule="Rise" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Nff-vq-qtk"/>
+                        <viewControllerLayoutGuide type="bottom" id="Oi3-Qs-Jd9"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="LpM-CH-PQa">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PCK-de-oHN">
+                                <rect key="frame" x="325" y="30" width="30" height="46"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                <state key="normal" title="×"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cgz-jT-tYe">
+                                <rect key="frame" x="20" y="35" width="35" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="35" id="g6y-dR-swZ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="35"/>
+                                <state key="normal" title="✼"/>
+                                <connections>
+                                    <action selector="touchedRiseButton:" destination="6WJ-TM-sY9" eventType="touchUpInside" id="fo2-Ab-oIH"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="⇠Take a photo!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="px0-yd-Ury">
+                                <rect key="frame" x="58" y="43" width="119" height="28"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="119" id="qC0-dP-6D7"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="italicSystem" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NGe-kG-A8m">
+                                <rect key="frame" x="20" y="98" width="335" height="471"/>
+                            </imageView>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ru8-Az-vmN">
+                                <rect key="frame" x="150" y="572" width="185" height="82"/>
+                            </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Events nearby:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ufk-Jd-whw">
+                                <rect key="frame" x="29" y="584" width="113" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hjU-dm-yIq">
+                                <rect key="frame" x="-13" y="605" width="190" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" title="It's not here!"/>
+                                <connections>
+                                    <action selector="newEventButton:" destination="6WJ-TM-sY9" eventType="touchUpInside" id="C1y-Rt-r2E"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="cgz-jT-tYe" firstAttribute="centerY" secondItem="PCK-de-oHN" secondAttribute="centerY" id="AkJ-EH-1Oa"/>
+                            <constraint firstItem="NGe-kG-A8m" firstAttribute="top" secondItem="PCK-de-oHN" secondAttribute="bottom" constant="22" id="HHt-2I-i0E"/>
+                            <constraint firstItem="px0-yd-Ury" firstAttribute="top" secondItem="Nff-vq-qtk" secondAttribute="bottom" constant="23" id="HQG-Sh-Sec"/>
+                            <constraint firstItem="Oi3-Qs-Jd9" firstAttribute="top" secondItem="NGe-kG-A8m" secondAttribute="bottom" constant="98" id="MfS-09-cNf"/>
+                            <constraint firstItem="NGe-kG-A8m" firstAttribute="centerX" secondItem="LpM-CH-PQa" secondAttribute="centerX" id="N7E-m5-g1J"/>
+                            <constraint firstItem="PCK-de-oHN" firstAttribute="top" secondItem="Nff-vq-qtk" secondAttribute="bottom" constant="10" id="QFw-Za-iKw"/>
+                            <constraint firstItem="NGe-kG-A8m" firstAttribute="centerY" secondItem="LpM-CH-PQa" secondAttribute="centerY" id="Tyq-Ra-yLS"/>
+                            <constraint firstItem="cgz-jT-tYe" firstAttribute="leading" secondItem="NGe-kG-A8m" secondAttribute="leading" id="Zff-jx-hwg"/>
+                            <constraint firstItem="PCK-de-oHN" firstAttribute="trailing" secondItem="NGe-kG-A8m" secondAttribute="trailing" id="hae-rg-ML9"/>
+                            <constraint firstItem="cgz-jT-tYe" firstAttribute="top" secondItem="Nff-vq-qtk" secondAttribute="bottom" constant="15" id="lQZ-T5-VDo"/>
+                            <constraint firstItem="cgz-jT-tYe" firstAttribute="leading" secondItem="LpM-CH-PQa" secondAttribute="leadingMargin" constant="4" id="s1B-24-njB"/>
+                            <constraint firstItem="NGe-kG-A8m" firstAttribute="top" secondItem="px0-yd-Ury" secondAttribute="bottom" constant="27" id="w1W-m2-Arf"/>
+                            <constraint firstItem="px0-yd-Ury" firstAttribute="leading" secondItem="cgz-jT-tYe" secondAttribute="trailing" constant="3" id="ymP-qF-kTG"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="eventPicker" destination="ru8-Az-vmN" id="sw0-5C-mEC"/>
+                        <outlet property="helpLabel" destination="px0-yd-Ury" id="2Ul-ZT-WkZ"/>
+                        <outlet property="imageView" destination="NGe-kG-A8m" id="2i3-ux-Rhx"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="1563.5" y="763.5"/>
+        </scene>
+    </scenes>
+</document>
