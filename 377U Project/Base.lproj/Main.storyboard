@@ -140,6 +140,11 @@
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="eventDescriptionTextField" destination="GfH-UD-TJT" id="L7N-lg-v6J"/>
+                        <outlet property="eventNameTextField" destination="RXQ-MC-lGs" id="Zbb-OH-Ble"/>
+                        <outlet property="eventTagTextField" destination="Sg1-sI-BUg" id="Lfq-j7-b15"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1xq-CG-ANY" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="aFM-4z-CjG">

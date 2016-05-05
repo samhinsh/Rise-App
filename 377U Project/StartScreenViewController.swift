@@ -15,6 +15,9 @@ import MapKit
     // MARK - Controller
     
     // CaptureEvent server location content
+    
+    /* ========= TODO: 1) Either change the url from data.json, or 2) use HTTP Request (or both?) ========= */
+    
     private let appServerURL = NSBundle.mainBundle().URLForResource("data", withExtension: "json")
     
     // database that holds and fetches capture events from server
