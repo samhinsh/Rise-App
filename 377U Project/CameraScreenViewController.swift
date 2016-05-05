@@ -52,7 +52,6 @@ import AVFoundation
                     
                 }
                 
-                
             }
             
         } catch {
@@ -60,7 +59,12 @@ import AVFoundation
         }
         
     }
-    @IBOutlet private var tempImageView: UIImageView!
+    
+    private var takenImage: UIImage? {
+        didSet {
+            performSegueWithIdentifier(Storyboard.ImageTakenIdentifier, sender: self)
+        }
+    }
     
     
     private func didPressTakePhoto(){
@@ -78,9 +82,7 @@ import AVFoundation
                     
                     let image = UIImage(CGImage: cgImageRef!, scale: 1.0, orientation: UIImageOrientation.Right)
                     
-                    self.tempImageView.image = image // TODO: change to imageTaken
-                    self.tempImageView.hidden = false
-                    
+                    self.takenImage = image // TODO: change to imageTaken
                 }
             })
         }
@@ -92,7 +94,7 @@ import AVFoundation
     
     private func didPressTakeAnother(){
         if didTakePhoto == true{
-            tempImageView.hidden = true
+            // tempImageView.hidden = true
             didTakePhoto = false
             
         }
@@ -202,15 +204,20 @@ import AVFoundation
         static let ImageTakenIdentifier = "Show Taken Photo"
     }
     
-    
-    /*
      // MARK: - Navigation
      
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
      override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
+        if let destinationvc = segue.destinationViewController as? PictureReviewScreenViewController {
+            if let identifier = segue.identifier {
+                
+                switch identifier {
+                case Storyboard.ImageTakenIdentifier:
+                    destinationvc.setModel(nearbyEvents, image: takenImage)
+                
+                default: break
+                }
+            }
+        }
      }
-     */
     
 }

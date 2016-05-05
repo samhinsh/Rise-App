@@ -14,6 +14,8 @@ class PictureReviewScreenViewController: UIViewController, UIImagePickerControll
     
     @IBOutlet var takenImage: UIImageView!
     
+    private var myImage: UIImage?
+    
     /* Events picker */
     @IBOutlet weak var eventPicker: UIPickerView!
     
@@ -29,14 +31,16 @@ class PictureReviewScreenViewController: UIViewController, UIImagePickerControll
     }
     
     // MARK: - Set model
-    func setModel(events: [CaptureEvent]) {
+    func setModel(events: [CaptureEvent], image: UIImage?) {
         nearbyEvents = events
+        myImage = image
+        
     }
     
     // MARK: - EventsPicker
     
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return 0 // nearbyEvents.count
+        return nearbyEvents.count
     }
     
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
@@ -44,14 +48,12 @@ class PictureReviewScreenViewController: UIViewController, UIImagePickerControll
     }
     
     func pickerView(pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
-        /*
         let title = nearbyEvents[row].title
         let titleLength = title.characters.count
         let range = NSRange(location: 0, length: titleLength)
         let pickerTitle = NSMutableAttributedString(string: title)
         pickerTitle.addAttribute(NSForegroundColorAttributeName, value: UIColor.whiteColor(), range: range)
-        return pickerTitle */
-        return nil
+        return pickerTitle
     }
 
     override func viewDidLoad() {
@@ -59,6 +61,13 @@ class PictureReviewScreenViewController: UIViewController, UIImagePickerControll
         
         self.eventPicker.delegate = self
         self.eventPicker.dataSource = self
+        
+        if myImage == nil {
+            print("Image not set")
+        } else {
+            print("Image set!")
+            takenImage.image = myImage
+        }
 
         // Do any additional setup after loading the view.
     }
