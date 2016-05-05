@@ -240,7 +240,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="cameraView" destination="icU-Id-0D5" id="EbN-VI-C6C"/>
-                        <segue destination="KHi-NN-29E" kind="show" identifier="Show Taken Photo" id="6rb-uX-csQ"/>
+                        <segue destination="KHi-NN-29E" kind="presentation" identifier="Show Taken Photo" modalTransitionStyle="crossDissolve" id="6rb-uX-csQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u30-Dc-vEx" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -49,9 +49,7 @@ import AVFoundation
                     previewLayer?.connection.videoOrientation = AVCaptureVideoOrientation.Portrait
                     cameraView.layer.addSublayer(previewLayer!)
                     captureSession?.startRunning()
-                    
                 }
-                
             }
             
         } catch {

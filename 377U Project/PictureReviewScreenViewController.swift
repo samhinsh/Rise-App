@@ -27,7 +27,8 @@ class PictureReviewScreenViewController: UIViewController, UIImagePickerControll
     }
     
     @IBAction func goBack(sender: UIButton) {
-        self.navigationController?.popViewControllerAnimated(false)
+        self.navigationController?.popToViewController(self.parentViewController!, animated: false)
+            print("Going to parent!")
     }
     
     // MARK: - Set model
@@ -62,12 +63,7 @@ class PictureReviewScreenViewController: UIViewController, UIImagePickerControll
         self.eventPicker.delegate = self
         self.eventPicker.dataSource = self
         
-        if myImage == nil {
-            print("Image not set")
-        } else {
-            print("Image set!")
-            takenImage.image = myImage
-        }
+        takenImage.image = myImage
 
         // Do any additional setup after loading the view.
     }
