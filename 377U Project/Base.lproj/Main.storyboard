@@ -231,7 +231,8 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="KHi-NN-29E" kind="show" animates="NO" id="fx7-84-8OL"/>
+                                    <action selector="takePicture:" destination="7GC-Si-y3O" eventType="touchUpInside" id="B7p-2c-W7O"/>
+                                    <segue destination="KHi-NN-29E" kind="show" identifier="Show Taken Photo" animates="NO" id="fx7-84-8OL"/>
                                 </connections>
                             </button>
                         </subviews>

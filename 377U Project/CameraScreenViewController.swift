@@ -11,12 +11,12 @@ import AVFoundation
 
 @IBDesignable class CameraScreenViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
 
-    var nearbyEvents: [CaptureEvent] = [CaptureEvent]()
+    private var nearbyEvents: [CaptureEvent] = [CaptureEvent]()
     
-    var captureSession : AVCaptureSession?
-    var stillImageOutput : AVCaptureStillImageOutput?
-    var previewLayer : AVCaptureVideoPreviewLayer?
-    @IBOutlet var cameraView: UIView!
+    private var captureSession : AVCaptureSession?
+    private var stillImageOutput : AVCaptureStillImageOutput?
+    private var previewLayer : AVCaptureVideoPreviewLayer?
+    @IBOutlet private var cameraView: UIView!
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
@@ -60,10 +60,10 @@ import AVFoundation
         }
         
     }
-    @IBOutlet var tempImageView: UIImageView!
+    @IBOutlet private var tempImageView: UIImageView!
     
     
-    func didPressTakePhoto(){
+    private func didPressTakePhoto(){
         
         if let videoConnection = stillImageOutput?.connectionWithMediaType(AVMediaTypeVideo){
             videoConnection.videoOrientation = AVCaptureVideoOrientation.Portrait
@@ -88,9 +88,9 @@ import AVFoundation
         
     }
     
-    var didTakePhoto = Bool()
+    private var didTakePhoto = Bool()
     
-    func didPressTakeAnother(){
+    private func didPressTakeAnother(){
         if didTakePhoto == true{
             tempImageView.hidden = true
             didTakePhoto = false
@@ -105,9 +105,16 @@ import AVFoundation
         
     }
     
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    @IBAction private func takePicture(sender: UIButton) {
         didPressTakeAnother()
     }
+    
+    
+    /*
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        
+    }
+    */
     
     /*
     /* Rise button action */
@@ -189,6 +196,10 @@ import AVFoundation
     
     override func prefersStatusBarHidden() -> Bool {
         return true
+    }
+    
+    private struct Storyboard {
+        static let ImageTakenIdentifier = "Show Taken Photo"
     }
     
     
