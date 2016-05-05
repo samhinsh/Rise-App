@@ -48,7 +48,8 @@ class PictureReviewScreenViewController: UIViewController, UIImagePickerControll
         
         print("Great, sending this \(myImageTitle) to the server for the event: \(selectedEvent.title)!")
         
-        // TODO: send myImage & myImageTitle
+        // TODO: send myImage & myImageTitle to the image server
+        // TODO: send the selected event to the captureEvent server (find some way to update its original listing)
     }
     
     // MARK: - Set model
