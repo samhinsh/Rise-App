@@ -30,6 +30,27 @@ class PictureReviewScreenViewController: UIViewController, UIImagePickerControll
         self.navigationController!.popViewControllerAnimated(false)
     }
     
+    /* Clicked the '✓' send the image taken to the server, along with it's title.
+     * Append the image to the event */
+    @IBAction func sendToServer(sender: UIButton) {
+        self.navigationController!.popViewControllerAnimated(false)
+        
+        /* ========= TODO: Add Server code to send picture (HTTP Request?) ========= */
+        /* ========= TODO: Update the event's image and send to the database ========= */
+        
+        // 'myImage' is the UI Image being viewed
+        let selectedRow = eventPicker.selectedRowInComponent(0)
+        let selectedEvent = nearbyEvents[selectedRow]
+        
+        // create title
+        let myImageTitle = selectedEvent.hashtag + String(selectedEvent.media.count + 1)
+        selectedEvent.media.append(myImageTitle)
+        
+        print("Great, sending this \(myImageTitle) to the server for the event: \(selectedEvent.title)!")
+        
+        // TODO: send myImage & myImageTitle
+    }
+    
     // MARK: - Set model
     func setModel(events: [CaptureEvent], image: UIImage?) {
         nearbyEvents = events
