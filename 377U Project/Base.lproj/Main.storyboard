@@ -149,7 +149,7 @@
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="mGq-W8-NaP">
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="show" animates="NO" id="evw-vZ-mBJ"/>
+                        <segue destination="BYZ-38-t0r" kind="show" id="evw-vZ-mBJ"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
@@ -398,9 +398,6 @@
                                 <state key="normal" title="✓">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <connections>
-                                    <action selector="goBack:" destination="KHi-NN-29E" eventType="touchUpInside" id="dxK-52-9DQ"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
