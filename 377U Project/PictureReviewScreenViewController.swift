@@ -27,8 +27,7 @@ class PictureReviewScreenViewController: UIViewController, UIImagePickerControll
     }
     
     @IBAction func goBack(sender: UIButton) {
-        self.navigationController?.popToViewController(self.parentViewController!, animated: false)
-            print("Going to parent!")
+        self.navigationController!.popViewControllerAnimated(false)
     }
     
     // MARK: - Set model
