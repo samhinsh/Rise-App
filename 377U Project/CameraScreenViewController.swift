@@ -13,21 +13,13 @@ import AVFoundation
 
     var nearbyEvents: [CaptureEvent] = [CaptureEvent]()
     
-    /* It's not here! button */
-    @IBAction func newEventButton(sender: UIButton) {
-        
-    }
-    
-    /* Events picker */
-    @IBOutlet weak var eventPicker: UIPickerView!
-    
     var captureSession : AVCaptureSession?
     var stillImageOutput : AVCaptureStillImageOutput?
     var previewLayer : AVCaptureVideoPreviewLayer?
     @IBOutlet var cameraView: UIView!
     
     override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(false)
+        super.viewDidAppear(animated)
         previewLayer?.frame = cameraView.bounds
     }
     
@@ -86,7 +78,7 @@ import AVFoundation
                     
                     let image = UIImage(CGImage: cgImageRef!, scale: 1.0, orientation: UIImageOrientation.Right)
                     
-                    self.tempImageView.image = image
+                    self.tempImageView.image = image // TODO: change to imageTaken
                     self.tempImageView.hidden = false
                     
                 }
@@ -166,8 +158,6 @@ import AVFoundation
         super.viewDidLoad()
         self.navigationController?.setNavigationBarHidden(true, animated: false)
         
-        self.eventPicker.delegate = self
-        self.eventPicker.dataSource = self
         
         // Do any additional setup after loading the view.
     }

@@ -8,7 +8,6 @@
         <!--Camera Screen View Controller-->
         <scene sceneID="JFP-6Q-mwE">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="WvO-gR-GiB" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="6WJ-TM-sY9" customClass="CameraScreenViewController" customModule="Rise" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Nff-vq-qtk"/>
@@ -88,6 +87,7 @@
                         <outlet property="imageView" destination="NGe-kG-A8m" id="2i3-ux-Rhx"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WvO-gR-GiB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1563.5" y="763.5"/>
         </scene>

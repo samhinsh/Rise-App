@@ -18,6 +18,7 @@
 		C2A4D8231CCC491C00FC6376 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2A4D8211CCC491C00FC6376 /* LaunchScreen.storyboard */; };
 		C2A4D82E1CCC491C00FC6376 /* _77U_ProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A4D82D1CCC491C00FC6376 /* _77U_ProjectTests.swift */; };
 		C2A4D8391CCC491C00FC6376 /* _77U_ProjectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A4D8381CCC491C00FC6376 /* _77U_ProjectUITests.swift */; };
+		C2AD7F721CDB500F00591B40 /* PictureReviewScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2AD7F711CDB500F00591B40 /* PictureReviewScreenViewController.swift */; };
 		C2C2A31A1CD2875C002681A1 /* CaptureDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C2A3191CD2875C002681A1 /* CaptureDetailViewController.swift */; };
 		C2C2A31C1CD288D9002681A1 /* CameraScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C2A31B1CD288D9002681A1 /* CameraScreenViewController.swift */; };
 		C2C2A31E1CD2A5C3002681A1 /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C2A31D1CD2A5C3002681A1 /* ImageCollectionViewCell.swift */; };
@@ -61,6 +62,7 @@
 		C2A4D8341CCC491C00FC6376 /* 377U ProjectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "377U ProjectUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2A4D8381CCC491C00FC6376 /* _77U_ProjectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _77U_ProjectUITests.swift; sourceTree = "<group>"; };
 		C2A4D83A1CCC491C00FC6376 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C2AD7F711CDB500F00591B40 /* PictureReviewScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PictureReviewScreenViewController.swift; sourceTree = "<group>"; };
 		C2C2A3191CD2875C002681A1 /* CaptureDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaptureDetailViewController.swift; sourceTree = "<group>"; };
 		C2C2A31B1CD288D9002681A1 /* CameraScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraScreenViewController.swift; sourceTree = "<group>"; };
 		C2C2A31D1CD2A5C3002681A1 /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 				C2C2A31B1CD288D9002681A1 /* CameraScreenViewController.swift */,
 				C2A4D8171CCC491C00FC6376 /* StartScreenViewController.swift */,
 				C2A4D8191CCC491C00FC6376 /* Main.storyboard */,
+				C2AD7F711CDB500F00591B40 /* PictureReviewScreenViewController.swift */,
 				C2FF8A591CDB3E1A009BE0CC /* Unused.storyboard */,
 				C2A4D86C1CD034B300FC6376 /* Supporting Files */,
 			);
@@ -305,6 +308,7 @@
 				C2C2A3201CD2A890002681A1 /* ExpandedImageViewController.swift in Sources */,
 				C2C2A31C1CD288D9002681A1 /* CameraScreenViewController.swift in Sources */,
 				C25EC4CB1CD1ADEF003DEDCD /* CaptureEventTableViewController.swift in Sources */,
+				C2AD7F721CDB500F00591B40 /* PictureReviewScreenViewController.swift in Sources */,
 				C2C2A31E1CD2A5C3002681A1 /* ImageCollectionViewCell.swift in Sources */,
 				C2A4D8161CCC491C00FC6376 /* AppDelegate.swift in Sources */,
 				C2C2A31A1CD2875C002681A1 /* CaptureDetailViewController.swift in Sources */,
