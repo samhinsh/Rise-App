@@ -13,18 +13,21 @@ class NewEventViewController: UIViewController, UITextFieldDelegate {
     /* User event-details input text fields */
     
     @IBOutlet weak var eventNameTextField: UITextField!
-
+    
     @IBOutlet weak var eventDescriptionTextField: UITextField!
     
     @IBOutlet weak var eventTagTextField: UITextField!
     
+    @IBOutlet weak var scrollView: UIScrollView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        
+        
         // Do any additional setup after loading the view.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -35,12 +38,36 @@ class NewEventViewController: UIViewController, UITextFieldDelegate {
         static let RegisterNewEventWithServerIdentifier = "Send New Event"
     }
     
+    // Mark: - TextField Delegation
+    
     // default behavior of text field on return
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder() // hide keyboard
         return true // perform default behavior
     }
-
+    
+    func textFieldDidBeginEditing(textField: UITextField) {
+        
+        textField.text = nil;
+        textField.textColor = UIColor.blackColor()
+        
+        if textField == eventTagTextField {
+            textField.text = "#"
+        }
+        
+        if textField == eventTagTextField {
+            scrollView.setContentOffset(CGPointMake(0, 50), animated: true)
+        }
+    }
+    
+    func textFieldDidEndEditing(textField: UITextField) {
+        if textField.text == "" || (textField == eventTagTextField && textField.text == "#") {
+            textField.text = "(Required)"
+            textField.textColor = UIColor.darkGrayColor()
+        }
+        scrollView.setContentOffset(CGPointMake(0, 0), animated: true)
+    }
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if ((segue.destinationViewController as? StartScreenViewController) != nil) {
@@ -65,5 +92,20 @@ class NewEventViewController: UIViewController, UITextFieldDelegate {
                 }
             }
         }
+    }
+    
+    // stop the graph segway if a fully formed function has not been input
+    override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool
+    {
+        switch identifier {
+            
+        // TODO: more validation
+        case Storyboard.RegisterNewEventWithServerIdentifier:
+            if eventNameTextField.text == "(Required)" ||  eventDescriptionTextField.text == "(Required)" || eventTagTextField.text == "(Required)" {
+                return false
+            }
+        default: break
+        }
+        return true
     }
 }
