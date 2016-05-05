@@ -5,10 +5,10 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--New Event View Controller-->
         <scene sceneID="MzU-4h-mps">
             <objects>
-                <viewController id="Ptq-zh-blE" sceneMemberID="viewController">
+                <viewController id="Ptq-zh-blE" customClass="NewEventViewController" customModule="Rise" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="1kI-2A-SCa"/>
                         <viewControllerLayoutGuide type="bottom" id="cuC-Mg-JfT"/>
@@ -63,7 +63,7 @@
                                     <color key="titleColor" red="0.51372549019607838" green="0.67450980392156867" blue="0.87058823529411766" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="hZd-P6-hQM" kind="show" id="QhW-fe-HNp"/>
+                                    <segue destination="hZd-P6-hQM" kind="show" identifier="Cancel New Event" id="QhW-fe-HNp"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start telling the story" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GV2-GT-uvw">
@@ -144,12 +144,12 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1xq-CG-ANY" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="aFM-4z-CjG">
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="show" animates="NO" id="dXq-FG-MCr"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="Send New Event" animates="NO" id="dXq-FG-MCr"/>
                     </connections>
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="mGq-W8-NaP">
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="show" id="evw-vZ-mBJ"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="Send New Event" id="evw-vZ-mBJ"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
