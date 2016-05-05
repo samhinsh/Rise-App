@@ -80,9 +80,13 @@
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Let it rise" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BTj-RM-S7x">
                                         <rect key="frame" x="143" y="8" width="88" height="40"/>
+                                        <gestureRecognizers/>
                                         <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="25"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="mGq-W8-NaP" appends="YES" id="Ujo-Af-0ec"/>
+                                        </connections>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.51372549020000002" green="0.67450980390000004" blue="0.87058823529999996" alpha="1" colorSpace="calibratedRGB"/>
@@ -91,6 +95,9 @@
                                     <constraint firstItem="BTj-RM-S7x" firstAttribute="centerX" secondItem="Kra-rc-f65" secondAttribute="centerX" id="R5D-eV-8TX"/>
                                     <constraint firstItem="BTj-RM-S7x" firstAttribute="top" secondItem="Kra-rc-f65" secondAttribute="topMargin" id="bco-KO-fjp"/>
                                 </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="aFM-4z-CjG" appends="YES" id="ej4-SM-oW1"/>
+                                </connections>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Near a significant event?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="60Z-Pr-haA">
                                 <rect key="frame" x="44" y="80" width="287" height="33"/>
@@ -135,6 +142,16 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1xq-CG-ANY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="aFM-4z-CjG">
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="show" animates="NO" id="dXq-FG-MCr"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="mGq-W8-NaP">
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="show" animates="NO" id="evw-vZ-mBJ"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1116.5" y="1367.5"/>
         </scene>
@@ -381,6 +398,9 @@
                                 <state key="normal" title="✓">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="goBack:" destination="KHi-NN-29E" eventType="touchUpInside" id="dxK-52-9DQ"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -552,6 +572,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="rPo-rf-q6Q"/>
+        <segue reference="evw-vZ-mBJ"/>
+        <segue reference="QhW-fe-HNp"/>
     </inferredMetricsTieBreakers>
 </document>
