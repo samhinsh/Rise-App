@@ -88,6 +88,7 @@ import AVFoundation
         
     }
     
+    /*
     private var didTakePhoto = Bool()
     
     private func didPressTakeAnother(){
@@ -104,9 +105,10 @@ import AVFoundation
         }
         
     }
+    */
     
     @IBAction private func takePicture(sender: UIButton) {
-        didPressTakeAnother()
+        didPressTakePhoto()
     }
     
     
