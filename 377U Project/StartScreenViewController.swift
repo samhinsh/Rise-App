@@ -20,7 +20,6 @@ import MapKit
     // database that holds and fetches capture events from server
     private var database: CaptureEventDatabase?
     
-    
     // User location manager
     private let locationManager = CLLocationManager()
     
