@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="hZd-P6-hQM">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -181,7 +182,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1116.5" y="1367.5"/>
+            <point key="canvasLocation" x="-375.5" y="387.5"/>
         </scene>
         <!--Start Screen View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -276,6 +277,18 @@
                                     </segue>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j7D-Gy-HTm">
+                                <rect key="frame" x="14" y="214" width="33" height="37"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="37" id="QVD-Cz-OLu"/>
+                                    <constraint firstAttribute="width" constant="33" id="RLZ-Aw-GBc"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="30"/>
+                                <state key="normal" title="◉"/>
+                                <connections>
+                                    <action selector="snapToLocation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Hsw-Ji-aTX"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -292,6 +305,8 @@
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Vx9-P1-GcN" secondAttribute="bottom" constant="8" symbolic="YES" id="Wgu-L0-wuu"/>
                             <constraint firstItem="n49-uc-i7z" firstAttribute="centerX" secondItem="Vx9-P1-GcN" secondAttribute="centerX" id="Wo8-dF-MeX"/>
                             <constraint firstItem="gH9-Ho-E1j" firstAttribute="top" secondItem="gGD-WY-ej9" secondAttribute="bottom" constant="24" id="bvg-Dq-4AS"/>
+                            <constraint firstItem="j7D-Gy-HTm" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-2" id="c0e-DL-rX4"/>
+                            <constraint firstItem="gH9-Ho-E1j" firstAttribute="top" secondItem="j7D-Gy-HTm" secondAttribute="bottom" constant="13" id="e4E-dc-SJT"/>
                             <constraint firstItem="n49-uc-i7z" firstAttribute="leading" secondItem="gH9-Ho-E1j" secondAttribute="leading" id="lZ4-hT-sYx"/>
                             <constraint firstItem="uuZ-Ku-aYk" firstAttribute="top" secondItem="9os-pf-x4K" secondAttribute="bottom" constant="8" symbolic="YES" id="n6I-k8-R8L"/>
                             <constraint firstItem="uuZ-Ku-aYk" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="owl-hl-VqC"/>
@@ -330,7 +345,26 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="icU-Id-0D5">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8o6-J3-90Y">
+                                        <rect key="frame" x="152" y="527" width="71" height="140"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="71" id="4H8-I8-dTz"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="80"/>
+                                        <state key="normal" title="✼">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="takePicture:" destination="7GC-Si-y3O" eventType="touchUpInside" id="B7p-2c-W7O"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="8o6-J3-90Y" firstAttribute="centerX" secondItem="icU-Id-0D5" secondAttribute="centerX" id="8X5-Q7-zNe"/>
+                                    <constraint firstAttribute="bottom" secondItem="8o6-J3-90Y" secondAttribute="bottom" id="z3v-Y7-3Dq"/>
+                                </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t6m-lW-ove">
                                 <rect key="frame" x="13" y="0.0" width="30" height="60"/>
@@ -341,31 +375,15 @@
                                     <segue destination="hZd-P6-hQM" kind="show" animates="NO" id="rPo-rf-q6Q"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8o6-J3-90Y">
-                                <rect key="frame" x="152" y="562" width="71" height="81"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="71" id="Bce-nc-MMd"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="80"/>
-                                <state key="normal" title="✼">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="takePicture:" destination="7GC-Si-y3O" eventType="touchUpInside" id="B7p-2c-W7O"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="icU-Id-0D5" firstAttribute="leading" secondItem="z8n-xh-ffq" secondAttribute="leading" id="0WM-YJ-SiN"/>
-                            <constraint firstItem="icU-Id-0D5" firstAttribute="centerX" secondItem="8o6-J3-90Y" secondAttribute="centerX" id="FJ7-rS-jIk"/>
-                            <constraint firstItem="icU-Id-0D5" firstAttribute="bottom" secondItem="tJA-6d-fxf" secondAttribute="top" id="GwT-IR-s4E"/>
-                            <constraint firstItem="8o6-J3-90Y" firstAttribute="top" secondItem="bSo-At-ch9" secondAttribute="bottom" constant="542" id="IjA-nV-OGW"/>
-                            <constraint firstAttribute="trailing" secondItem="icU-Id-0D5" secondAttribute="trailing" id="MoX-Xx-kwJ"/>
-                            <constraint firstItem="tJA-6d-fxf" firstAttribute="top" secondItem="8o6-J3-90Y" secondAttribute="bottom" constant="24" id="fGK-1c-nsQ"/>
-                            <constraint firstItem="icU-Id-0D5" firstAttribute="top" secondItem="z8n-xh-ffq" secondAttribute="top" id="hBn-lV-ssx"/>
-                            <constraint firstItem="icU-Id-0D5" firstAttribute="top" secondItem="t6m-lW-ove" secondAttribute="top" id="lQj-5y-Kbp"/>
-                            <constraint firstItem="t6m-lW-ove" firstAttribute="leading" secondItem="z8n-xh-ffq" secondAttribute="leadingMargin" constant="-3" id="qyV-vp-HrL"/>
+                            <constraint firstItem="icU-Id-0D5" firstAttribute="top" secondItem="t6m-lW-ove" secondAttribute="top" id="MHp-be-raE"/>
+                            <constraint firstItem="t6m-lW-ove" firstAttribute="leading" secondItem="z8n-xh-ffq" secondAttribute="leadingMargin" constant="-3" id="dA5-tk-KeG"/>
+                            <constraint firstItem="icU-Id-0D5" firstAttribute="top" secondItem="z8n-xh-ffq" secondAttribute="top" id="dpb-eN-X8J"/>
+                            <constraint firstAttribute="trailing" secondItem="icU-Id-0D5" secondAttribute="trailing" id="hjU-Y9-D71"/>
+                            <constraint firstItem="icU-Id-0D5" firstAttribute="leading" secondItem="z8n-xh-ffq" secondAttribute="leading" id="uS1-P0-G2D"/>
+                            <constraint firstItem="icU-Id-0D5" firstAttribute="bottom" secondItem="tJA-6d-fxf" secondAttribute="top" id="vUh-Wn-WP0"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
@@ -603,6 +621,6 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="evw-vZ-mBJ"/>
-        <segue reference="QhW-fe-HNp"/>
+        <segue reference="rPo-rf-q6Q"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -12,9 +12,9 @@ class PictureReviewScreenViewController: UIViewController, UIImagePickerControll
     
     var nearbyEvents: [CaptureEvent] = [CaptureEvent]()
     
-    @IBOutlet var takenImage: UIImageView!
-    
     private var myImage: UIImage?
+    
+    @IBOutlet var takenImage: UIImageView!
     
     /* Events picker */
     @IBOutlet weak var eventPicker: UIPickerView!
@@ -35,8 +35,8 @@ class PictureReviewScreenViewController: UIViewController, UIImagePickerControll
     @IBAction func sendToServer(sender: UIButton) {
         self.navigationController!.popViewControllerAnimated(false)
         
-        /* ========= TODO: Add Server code to send picture (HTTP Request?) ========= */
-        /* ========= TODO: Update the event's image and send to the database ========= */
+        /* ========= TODO: Add Server code to send picture to the image (HTTP Request?) ========= */
+        /* ========= TODO: Update the event's image and send to the event server ========= */
         
         // 'myImage' is the UI Image being viewed
         let selectedRow = eventPicker.selectedRowInComponent(0)
@@ -50,6 +50,18 @@ class PictureReviewScreenViewController: UIViewController, UIImagePickerControll
         
         // TODO: send myImage & myImageTitle to the image server
         // TODO: send the selected event to the captureEvent server (find some way to update its original listing)
+        
+        ///////// Manual Storage Test //////////
+//        let nsDocumentDirectory = NSSearchPathDirectory.DocumentDirectory
+//        let nsUserDomainMask = NSSearchPathDomainMask.UserDomainMask
+//        if let paths = NSSearchPathForDirectoriesInDomains(nsDocumentDirectory, nsUserDomainMask, true) {
+//            if paths.count > 0 {
+//                if let dirPath = paths[0] as? String {
+//                    let writePath = dirPath.stringByAppendingPathComponent(myImageTitle)
+//                    UIImagePNGRepresentation(myImage).writeToFile(writePath, atomically: true)
+//                }
+//            }
+//        }
     }
     
     // MARK: - Set model

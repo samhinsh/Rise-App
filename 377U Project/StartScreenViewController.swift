@@ -179,6 +179,12 @@ import MapKit
     
     // MARK: - Location Delegate methods
     
+    /* zoom button on map */
+    @IBAction func snapToLocation(sender: UIButton) {
+        
+        zoomToUserLocation(locationManager)
+    }
+    
     /* Zoom to worldview */
     private func zoomToCountry()
     {
@@ -244,10 +250,10 @@ import MapKit
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation])
     {
         // zoom to user location only if 'nearby' tab selected
-        if tabDisplay == "nearby" {
-            zoomToUserLocation(manager, didUpdateLocations: locations)
-        }
-        self.locationManager.stopUpdatingLocation()
+//        if tabDisplay == "nearby" {
+//            zoomToUserLocation(manager, didUpdateLocations: locations)
+//        }
+        // self.locationManager.stopUpdatingLocation()
     }
     
     func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {

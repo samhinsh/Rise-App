@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class NewEventViewController: UIViewController, UITextFieldDelegate {
     
@@ -86,6 +87,23 @@ class NewEventViewController: UIViewController, UITextFieldDelegate {
                     let eventHashtag = eventTagTextField.text
                     
                     // grab the text from the UI elements (done already), jsonify them into the format used in data.json (must include all fields, even if empty, i.e. no media present)
+                    let myRootRef = Firebase(url:"https://radiant-torch-3623.firebaseio.com/events")
+
+                    let newEvent = ["5":["about": "eventAbout",
+                        "coordinates": "37.429492,-122.169581",
+                        "hashtag":"eventHashtag",
+                        "title":"eventTitle",
+                        "media":"new.jpg"
+                        ]]
+//                    let gracehop = ["full_name": "Grace Hopper", "date_of_birth": "December 9, 1906"]
+                    
+//                    let usersRef = myRootRef.childByAppendingPath("5")
+                    
+//                    let users = ["alanisawesome": alanisawesome]
+                    myRootRef.setValue(newEvent)
+                    
+                    
+                    
                     
                 case Storyboard.CancelNewEventRegistrationIdentifier: break
                 default: break
