@@ -8,8 +8,9 @@
 
 import UIKit
 import Firebase
+import CoreLocation
 
-class NewEventViewController: UIViewController, UITextFieldDelegate {
+class NewEventViewController: UIViewController, UITextFieldDelegate, CLLocationManagerDelegate {
     
     /* User event-details input text fields */
     
@@ -20,6 +21,10 @@ class NewEventViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var eventTagTextField: UITextField!
     
     @IBOutlet weak var scrollView: UIScrollView!
+    
+    var locationManager: CLLocationManager?
+    
+    private var currentLocation: CLLocation?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -87,19 +92,24 @@ class NewEventViewController: UIViewController, UITextFieldDelegate {
                     let eventHashtag = eventTagTextField.text
                     
                     // grab the text from the UI elements (done already), jsonify them into the format used in data.json (must include all fields, even if empty, i.e. no media present)
-                    let myRootRef = Firebase(url:"https://radiant-torch-3623.firebaseio.com/events")
-
-                    let newEvent = ["5":["about": "eventAbout",
-                        "coordinates": "37.429492,-122.169581",
-                        "hashtag":"eventHashtag",
-                        "title":"eventTitle",
-                        "media":"new.jpg"
-                        ]]
-//                    let gracehop = ["full_name": "Grace Hopper", "date_of_birth": "December 9, 1906"]
                     
-//                    let usersRef = myRootRef.childByAppendingPath("5")
+                    guard let location = currentLocation else { return }
+                    let lat = location.coordinate.latitude
+                    let long = location.coordinate.longitude
                     
-//                    let users = ["alanisawesome": alanisawesome]
+                    let myRootRef = Firebase(url:"https://radiant-torch-3623.firebaseio.com")
+                    let newEvent = ["title" : String(eventTitle!),
+                                    "about" : String(eventAbout!),
+                                    "coordinates" : "\(lat),\(long)", // "37.4320965,-122.1605481"
+                                    "media" : [],
+                                    "hashtag" : String(eventHashtag!)
+                    ]
+                    
+                    let eventsRef = myRootRef.childByAppendingPath("events")
+                    eventsRef.childByAppendingPath(String(eventTitle!)).setValue(newEvent)
+                    
+                    
+                    
                     myRootRef.setValue(newEvent)
                     
                     
@@ -110,6 +120,10 @@ class NewEventViewController: UIViewController, UITextFieldDelegate {
                 }
             }
         }
+    }
+    
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        currentLocation = manager.location
     }
     
     // stop the graph segway if a fully formed function has not been input

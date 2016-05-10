@@ -340,6 +340,8 @@ import MapKit
                 default: break
                 }
             }
+        } else if let newEventVC = destinationVC as? NewEventViewController {
+            newEventVC.locationManager = self.locationManager
         }
     }
 }

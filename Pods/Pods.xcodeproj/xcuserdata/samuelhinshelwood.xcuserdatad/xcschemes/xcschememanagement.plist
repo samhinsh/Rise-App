@@ -4,6 +4,76 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>AWSAutoScaling.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>AWSCloudWatch.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>AWSCognito.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>AWSCore.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>AWSDynamoDB.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>AWSEC2.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>AWSElasticLoadBalancing.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>AWSKinesis.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>AWSMobileAnalytics.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>AWSS3.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>AWSSES.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>AWSSNS.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>AWSSQS.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>AWSSimpleDB.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Firebase.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -14,15 +84,115 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-377U ProjectTests.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-377U ProjectUITests.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>1C66868B6F03A9014037E66A7B48496D</key>
+		<key>0849E21B9B9ACDBAAC96A31A5953712F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>108CB98FE2926893B1E8D043EFAC94DE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>2A9F95466098EDA1DD980485FE9FE715</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>3B41A9B1D49827D58E203AF61D34F608</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4832904057931D92320FBDC06D136FA1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>63A2B70CD13FFB7C60AF5BEB9EB2CE03</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>7051517F12CD2BBD8AE2AD214DB4EC0C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>787ADFDC43AC596B7714B24B851BD6D0</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>7BB24175093D7F20531C6FD7CB7D1C9C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8FEE80FDFD497EF8A7066B8F64A5FE65</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A79E4DFDB520AC579CEA22EC6DE9ECD7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>AC89BF0B23F90017D2FE812E7D8478EF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>B7AC9326D819482593FE118E915409D7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>BC279E1A4A79751E826180F63A851E07</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>BD02CE344851D72142B287462B4106C0</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C3FB5DE1339FFE064A98868D1CA84176</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C503E2E6B20D036D86A4D580ED8BE567</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D1B3D231EED9AD3B2A77C4CE93023F11</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F9D3017FDE322CAF12E15A42B3977BFD</key>
 		<dict>
 			<key>primary</key>
 			<true/>

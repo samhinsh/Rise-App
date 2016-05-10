@@ -84,8 +84,36 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework "Pods-377U Project/AWSAutoScaling.framework"
+  install_framework "Pods-377U Project/AWSCloudWatch.framework"
+  install_framework "Pods-377U Project/AWSCognito.framework"
+  install_framework "Pods-377U Project/AWSCore.framework"
+  install_framework "Pods-377U Project/AWSDynamoDB.framework"
+  install_framework "Pods-377U Project/AWSEC2.framework"
+  install_framework "Pods-377U Project/AWSElasticLoadBalancing.framework"
+  install_framework "Pods-377U Project/AWSKinesis.framework"
+  install_framework "Pods-377U Project/AWSMobileAnalytics.framework"
+  install_framework "Pods-377U Project/AWSS3.framework"
+  install_framework "Pods-377U Project/AWSSES.framework"
+  install_framework "Pods-377U Project/AWSSNS.framework"
+  install_framework "Pods-377U Project/AWSSQS.framework"
+  install_framework "Pods-377U Project/AWSSimpleDB.framework"
   install_framework "Pods-377U Project/Firebase.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework "Pods-377U Project/AWSAutoScaling.framework"
+  install_framework "Pods-377U Project/AWSCloudWatch.framework"
+  install_framework "Pods-377U Project/AWSCognito.framework"
+  install_framework "Pods-377U Project/AWSCore.framework"
+  install_framework "Pods-377U Project/AWSDynamoDB.framework"
+  install_framework "Pods-377U Project/AWSEC2.framework"
+  install_framework "Pods-377U Project/AWSElasticLoadBalancing.framework"
+  install_framework "Pods-377U Project/AWSKinesis.framework"
+  install_framework "Pods-377U Project/AWSMobileAnalytics.framework"
+  install_framework "Pods-377U Project/AWSS3.framework"
+  install_framework "Pods-377U Project/AWSSES.framework"
+  install_framework "Pods-377U Project/AWSSNS.framework"
+  install_framework "Pods-377U Project/AWSSQS.framework"
+  install_framework "Pods-377U Project/AWSSimpleDB.framework"
   install_framework "Pods-377U Project/Firebase.framework"
 fi
