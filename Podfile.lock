@@ -1,0 +1,97 @@
+PODS:
+  - AWSAutoScaling (2.4.1):
+    - AWSCore (= 2.4.1)
+  - AWSCloudWatch (2.4.1):
+    - AWSCore (= 2.4.1)
+  - AWSCognito (2.4.1):
+    - AWSCore (= 2.4.1)
+  - AWSCognitoSync (2.4.1):
+    - AWSCognito (= 2.4.1)
+  - AWSCore (2.4.1)
+  - AWSDynamoDB (2.4.1):
+    - AWSCore (= 2.4.1)
+  - AWSEC2 (2.4.1):
+    - AWSCore (= 2.4.1)
+  - AWSElasticLoadBalancing (2.4.1):
+    - AWSCore (= 2.4.1)
+  - AWSiOSSDKv2 (2.4.1):
+    - AWSiOSSDKv2/AutoScaling (= 2.4.1)
+    - AWSiOSSDKv2/AWSCore (= 2.4.1)
+    - AWSiOSSDKv2/CloudWatch (= 2.4.1)
+    - AWSiOSSDKv2/DynamoDB (= 2.4.1)
+    - AWSiOSSDKv2/EC2 (= 2.4.1)
+    - AWSiOSSDKv2/ElasticLoadBalancing (= 2.4.1)
+    - AWSiOSSDKv2/Kinesis (= 2.4.1)
+    - AWSiOSSDKv2/MobileAnalytics (= 2.4.1)
+    - AWSiOSSDKv2/S3 (= 2.4.1)
+    - AWSiOSSDKv2/SES (= 2.4.1)
+    - AWSiOSSDKv2/SimpleDB (= 2.4.1)
+    - AWSiOSSDKv2/SNS (= 2.4.1)
+    - AWSiOSSDKv2/SQS (= 2.4.1)
+  - AWSiOSSDKv2/AutoScaling (2.4.1):
+    - AWSAutoScaling (= 2.4.1)
+  - AWSiOSSDKv2/AWSCore (2.4.1):
+    - AWSCore (= 2.4.1)
+  - AWSiOSSDKv2/CloudWatch (2.4.1):
+    - AWSCloudWatch (= 2.4.1)
+  - AWSiOSSDKv2/DynamoDB (2.4.1):
+    - AWSDynamoDB (= 2.4.1)
+  - AWSiOSSDKv2/EC2 (2.4.1):
+    - AWSEC2 (= 2.4.1)
+  - AWSiOSSDKv2/ElasticLoadBalancing (2.4.1):
+    - AWSElasticLoadBalancing (= 2.4.1)
+  - AWSiOSSDKv2/Kinesis (2.4.1):
+    - AWSKinesis (= 2.4.1)
+  - AWSiOSSDKv2/MobileAnalytics (2.4.1):
+    - AWSMobileAnalytics (= 2.4.1)
+  - AWSiOSSDKv2/S3 (2.4.1):
+    - AWSS3 (= 2.4.1)
+  - AWSiOSSDKv2/SES (2.4.1):
+    - AWSSES (= 2.4.1)
+  - AWSiOSSDKv2/SimpleDB (2.4.1):
+    - AWSSimpleDB (= 2.4.1)
+  - AWSiOSSDKv2/SNS (2.4.1):
+    - AWSSNS (= 2.4.1)
+  - AWSiOSSDKv2/SQS (2.4.1):
+    - AWSSQS (= 2.4.1)
+  - AWSKinesis (2.4.1):
+    - AWSCore (= 2.4.1)
+  - AWSMobileAnalytics (2.4.1):
+    - AWSCore (= 2.4.1)
+  - AWSS3 (2.4.1):
+    - AWSCore (= 2.4.1)
+  - AWSSES (2.4.1):
+    - AWSCore (= 2.4.1)
+  - AWSSimpleDB (2.4.1):
+    - AWSCore (= 2.4.1)
+  - AWSSNS (2.4.1):
+    - AWSCore (= 2.4.1)
+  - AWSSQS (2.4.1):
+    - AWSCore (= 2.4.1)
+  - Firebase (2.5.1)
+
+DEPENDENCIES:
+  - AWSCognitoSync
+  - AWSiOSSDKv2
+  - Firebase (>= 2.5.1)
+
+SPEC CHECKSUMS:
+  AWSAutoScaling: 3b87242dfe7a2a2ab32f19841303c20269ac517f
+  AWSCloudWatch: bcca936523245b67502bca290b73cc43b3a2b399
+  AWSCognito: a57173a82505161bd1a9c8cfe393cea9b5b1f6bb
+  AWSCognitoSync: 7e04a0f4b8878560f8d698a06311af31f28c545f
+  AWSCore: 9bfd632f04aaf12053e639d2a9120372844beb0d
+  AWSDynamoDB: 1e9b01602df37e9d5ef014eff9d7b16663add6bb
+  AWSEC2: a9d996e3d04f0042a20548e01a9ee84e497f977f
+  AWSElasticLoadBalancing: 2f6248ed06cc48c5f90d8bce72fea6206f7fcd5d
+  AWSiOSSDKv2: fbcadc0a2f5725dafbb6cbc5a6872eb08453b622
+  AWSKinesis: 720f54403be256082f37fdc2c661169c70d90824
+  AWSMobileAnalytics: 7fb109f4011d40c5fe797f962007a9d50c812a1d
+  AWSS3: d7a3a694ffc4010e90b14755b5b9dbf70989c117
+  AWSSES: af07426ead2aafea11354ec3cdc53adc6ad2fe8b
+  AWSSimpleDB: 69c8e60cb2e8e6df83d9fad2b1cf64fe55cca9e4
+  AWSSNS: 69bd0886bd48f175a9bcfef0f78d47370a4cabad
+  AWSSQS: 735fb161c3046cef4c0c3ec1372538946fefcc34
+  Firebase: 3565ea88b830f28f2c77ecc524622bc71a20d085
+
+COCOAPODS: 0.39.0

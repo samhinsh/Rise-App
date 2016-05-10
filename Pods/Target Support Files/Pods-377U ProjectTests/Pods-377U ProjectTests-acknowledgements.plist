@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>PreferenceSpecifiers</key>
+	<array>
+		<dict>
+			<key>FooterText</key>
+			<string>This application makes use of the following third party libraries:</string>
+			<key>Title</key>
+			<string>Acknowledgements</string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+		</dict>
+		<dict>
+			<key>FooterText</key>
+			<string>The AWS Mobile SDK for iOS is generally licensed under the Apache 2.0 License, with the Amazon Cognito Identity Provider and Amazon Cognito Sync subcomponents being licensed under the Amazon Software License.
+</string>
+			<key>Title</key>
+			<string>AWSAutoScaling</string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+		</dict>
+		<dict>
+			<key>FooterText</key>
+			<string>The AWS Mobile SDK for iOS is generally licensed under the Apache 2.0 License, with the Amazon Cognito Identity Provider and Amazon Cognito Sync subcomponents being licensed under the Amazon Software License.
+</string>
+			<key>Title</key>
+			<string>AWSCloudWatch</string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+		</dict>
+		<dict>
+			<key>FooterText</key>
+			<string>The AWS Mobile SDK for iOS is generally licensed under the Apache 2.0 License, with the Amazon Cognito Identity Provider and Amazon Cognito Sync subcomponents being licensed under the Amazon Software License.
+</string>
+			<key>Title</key>
+			<string>AWSCognito</string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+		</dict>
+		<dict>
+			<key>FooterText</key>
+			<string>The AWS Mobile SDK for iOS is generally licensed under the Apache 2.0 License, with the Amazon Cognito Identity Provider and Amazon Cognito Sync subcomponents being licensed under the Amazon Software License.
+</string>
+			<key>Title</key>
+			<string>AWSCognitoSync</string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+		</dict>
+		<dict>
+			<key>FooterText</key>
+			<string>The AWS Mobile SDK for iOS is generally licensed under the Apache 2.0 License, with the Amazon Cognito Identity Provider and Amazon Cognito Sync subcomponents being licensed under the Amazon Software License.
+</string>
+			<key>Title</key>
+			<string>AWSCore</string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+		</dict>
+		<dict>
+			<key>FooterText</key>
+			<string>The AWS Mobile SDK for iOS is generally licensed under the Apache 2.0 License, with the Amazon Cognito Identity Provider and Amazon Cognito Sync subcomponents being licensed under the Amazon Software License.
+</string>
+			<key>Title</key>
+			<string>AWSDynamoDB</string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+		</dict>
+		<dict>
+			<key>FooterText</key>
+			<string>The AWS Mobile SDK for iOS is generally licensed under the Apache 2.0 License, with the Amazon Cognito Identity Provider and Amazon Cognito Sync subcomponents being licensed under the Amazon Software License.
+</string>
+			<key>Title</key>
+			<string>AWSEC2</string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+		</dict>
+		<dict>
+			<key>FooterText</key>
+			<string>The AWS Mobile SDK for iOS is generally licensed under the Apache 2.0 License, with the Amazon Cognito Identity Provider and Amazon Cognito Sync subcomponents being licensed under the Amazon Software License.
+</string>
+			<key>Title</key>
+			<string>AWSElasticLoadBalancing</string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+		</dict>
+		<dict>
+			<key>FooterText</key>
+			<string>The AWS Mobile SDK for iOS is generally licensed under the Apache 2.0 License, with the Amazon Cognito Identity Provider and Amazon Cognito Sync subcomponents being licensed under the Amazon Software License.
+</string>
+			<key>Title</key>
+			<string>AWSKinesis</string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+		</dict>
+		<dict>
+			<key>FooterText</key>
+			<string>The AWS Mobile SDK for iOS is generally licensed under the Apache 2.0 License, with the Amazon Cognito Identity Provider and Amazon Cognito Sync subcomponents being licensed under the Amazon Software License.
+</string>
+			<key>Title</key>
+			<string>AWSMobileAnalytics</string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+		</dict>
+		<dict>
+			<key>FooterText</key>
+			<string>The AWS Mobile SDK for iOS is generally licensed under the Apache 2.0 License, with the Amazon Cognito Identity Provider and Amazon Cognito Sync subcomponents being licensed under the Amazon Software License.
+</string>
+			<key>Title</key>
+			<string>AWSS3</string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+		</dict>
+		<dict>
+			<key>FooterText</key>
+			<string>The AWS Mobile SDK for iOS is generally licensed under the Apache 2.0 License, with the Amazon Cognito Identity Provider and Amazon Cognito Sync subcomponents being licensed under the Amazon Software License.
+</string>
+			<key>Title</key>
+			<string>AWSSES</string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+		</dict>
+		<dict>
+			<key>FooterText</key>
+			<string>The AWS Mobile SDK for iOS is generally licensed under the Apache 2.0 License, with the Amazon Cognito Identity Provider and Amazon Cognito Sync subcomponents being licensed under the Amazon Software License.
+</string>
+			<key>Title</key>
+			<string>AWSSNS</string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+		</dict>
+		<dict>
+			<key>FooterText</key>
+			<string>The AWS Mobile SDK for iOS is generally licensed under the Apache 2.0 License, with the Amazon Cognito Identity Provider and Amazon Cognito Sync subcomponents being licensed under the Amazon Software License.
+</string>
+			<key>Title</key>
+			<string>AWSSQS</string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+		</dict>
+		<dict>
+			<key>FooterText</key>
+			<string>The AWS Mobile SDK for iOS is generally licensed under the Apache 2.0 License, with the Amazon Cognito Identity Provider and Amazon Cognito Sync subcomponents being licensed under the Amazon Software License.
+</string>
+			<key>Title</key>
+			<string>AWSSimpleDB</string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+		</dict>
+		<dict>
+			<key>FooterText</key>
+			<string>The AWS Mobile SDK for iOS is generally licensed under the Apache 2.0 License, with the Amazon Cognito Identity Provider and Amazon Cognito Sync subcomponents being licensed under the Amazon Software License.
+</string>
+			<key>Title</key>
+			<string>AWSiOSSDKv2</string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+		</dict>
+		<dict>
+			<key>FooterText</key>
+			<string>https://www.firebase.com/terms/terms-of-service.html</string>
+			<key>Title</key>
+			<string>Firebase</string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+		</dict>
+		<dict>
+			<key>FooterText</key>
+			<string>Generated by CocoaPods - http://cocoapods.org</string>
+			<key>Title</key>
+			<string></string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+		</dict>
+	</array>
+	<key>StringsTable</key>
+	<string>Acknowledgements</string>
+	<key>Title</key>
+	<string>Acknowledgements</string>
+</dict>
+</plist>
