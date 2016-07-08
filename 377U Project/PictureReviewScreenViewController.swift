@@ -139,7 +139,7 @@ class PictureReviewScreenViewController: UIViewController, UIImagePickerControll
         /* =========Server code to send picture to S3 ========= */
         // configure authentication with Cognito
         let credentialsProvider = AWSCognitoCredentialsProvider(regionType:.USEast1,
-                                                                identityPoolId:"us-east-1:2a4b6f48-1ee2-4f53-8dd5-a9f55a7208b5")
+                                                                identityPoolId:"CREDENTIALS")
         // let credentialsProvider = AWSCognitoCredentialsProvider(regionType:.USEast1,identityPoolId:"us-east-1:c917bfeb-c829-4eac-ad34-8e333208fafe")
         let configuration = AWSServiceConfiguration(region:.USWest2, credentialsProvider:credentialsProvider)
         // let configuration = AWSServiceConfiguration(region:.USEast1, credentialsProvider:credentialsProvider)
