@@ -8,9 +8,10 @@
 
 import UIKit
 import Firebase
-import CoreLocation
 
-class NewEventViewController: UIViewController, UITextFieldDelegate, CLLocationManagerDelegate {
+class NewEventViewController: UIViewController, UITextFieldDelegate {
+    
+    var location: (latitude: Double, longitude: Double)?
     
     /* User event-details input text fields */
     
@@ -22,16 +23,22 @@ class NewEventViewController: UIViewController, UITextFieldDelegate, CLLocationM
     
     @IBOutlet weak var scrollView: UIScrollView!
     
-    var locationManager: CLLocationManager?
-    
-    private var currentLocation: CLLocation?
-    
+    @IBAction func CloseNewEvent(sender: AnyObject) {
+        let tracker = GAI.sharedInstance().defaultTracker
+        
+        tracker.send(GAIDictionaryBuilder.createEventWithCategory("Close Event", action: "Cancel New Event", label: "New event not created ", value: nil).build() as [NSObject : AnyObject])
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let tracker = GAI.sharedInstance().defaultTracker
+        tracker.set(kGAIScreenName, value: "New Event Screen")
+        
+        let builder = GAIDictionaryBuilder.createScreenView()
+        tracker.send(builder.build() as [NSObject : AnyObject])
         
         
-        // Do any additional setup after loading the view.
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -76,7 +83,11 @@ class NewEventViewController: UIViewController, UITextFieldDelegate, CLLocationM
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if ((segue.destinationViewController as? StartScreenViewController) != nil) {
+        var destinationvc = segue.destinationViewController
+        if let navcon = destinationvc as? UINavigationController {
+            destinationvc = navcon.visibleViewController ?? destinationvc
+        }
+        if let _ = destinationvc as? StartScreenViewController {
             if let identifier = segue.identifier {
                 switch identifier {
                     
@@ -92,16 +103,22 @@ class NewEventViewController: UIViewController, UITextFieldDelegate, CLLocationM
                     let eventHashtag = eventTagTextField.text
                     
                     // grab the text from the UI elements (done already), jsonify them into the format used in data.json (must include all fields, even if empty, i.e. no media present)
+                    //work on getting coordinates
                     
-                    guard let location = currentLocation else { return }
-                    let lat = location.coordinate.latitude
-                    let long = location.coordinate.longitude
+                    var coordinate: String {
+                        if let _location = location {
+                            return "\(_location.latitude),\(_location.longitude)"
+                        }
+                        return "37.4320965,-122.1605481" // default
+                    }
+                    
+                    print("The coordinate was: \(coordinate)")
                     
                     let myRootRef = Firebase(url:"https://radiant-torch-3623.firebaseio.com")
                     let newEvent = ["title" : String(eventTitle!),
                                     "about" : String(eventAbout!),
-                                    "coordinates" : "\(lat),\(long)", // "37.4320965,-122.1605481"
-                                    "media" : [],
+                                    "coordinates" : coordinate,
+                                    "media" : ["newEvent.png"],
                                     "hashtag" : String(eventHashtag!)
                     ]
                     
@@ -109,21 +126,11 @@ class NewEventViewController: UIViewController, UITextFieldDelegate, CLLocationM
                     eventsRef.childByAppendingPath(String(eventTitle!)).setValue(newEvent)
                     
                     
-                    
-                    myRootRef.setValue(newEvent)
-                    
-                    
-                    
-                    
                 case Storyboard.CancelNewEventRegistrationIdentifier: break
                 default: break
                 }
             }
         }
-    }
-    
-    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        currentLocation = manager.location
     }
     
     // stop the graph segway if a fully formed function has not been input

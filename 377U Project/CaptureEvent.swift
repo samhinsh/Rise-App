@@ -36,3 +36,7 @@ class CaptureEvent {
         self.hashtag = hashtag
     }
 }
+
+//func makeCaptureEvent() {
+//    var stringArray = ["s1", "s2"]
+//}

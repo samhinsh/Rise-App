@@ -1,43 +1,43 @@
 {
     "events" : [
-        {
-            "title" : "Black Lives Matter Rally",
-            "about" : "#BLM is a call to action to the virulent anti-Black racism that permeates our society. It is rooted in the experiences of Black people in this country who actively resist our de-humanization.",
-            "coordinates" : "37.424428,-122.169929",
-            "media" : "blm1,blm2,blm3,blm4,blm5,blm6,blm7,blm8",
-            "hashtag" : "#BlackLivesMatter"
-        },
-        
-        {
-            "title" : "Who's Teaching Us",
-            "about" : "Who’s Teaching Us is a rally to raise awareness for the need of faculty diversity and support for marginalized studies and community centers on campus.",
-            "coordinates" : "37.429492,-122.169581",
-            "media" : "wtu1,wtu2,wtu3,wtu4,wtu5,wtu6",
-            "hashtag" : "#StanfordWTU"
-        },
-
-        {
-            "title" : "Fossil Free Stanford",
-            "about" : "Movement calling on Stanford University to freeze new fossil fuel investments and fully divest from fossil fuels within the next five years.",
-            "coordinates" : "37.427554,-122.169357",
-            "media" : "dfc1,dfc2,dfc3,dfc4,dfc5,dfc6,dfc7,dfc8",
-            "hashtag" : "#FossilFreeStanford"
-        },
-        
-        {
-            "title" : "Take Back the Night",
-            "about" : "Rally, march, and speakout against sexual violence on campus",
-            "coordinates" : "37.424428,-122.169929",
-            "media" : "tbn1,tbn2,tbn3,tbn4,tbn5,tbn6,tbn7",
-            "hashtag" : "#TakeBacktheNight"
-        },
-        
-        {
-            "title" : "Out of the Darkness Walk",
-            "about" : "Out of the Darkness walks are approximately 5k walk events that fundraise and create awareness for suicide prevention and serve as a place for survivors of suicide loss and those suffering from mental illness to come together in support of continued suicide prevention and mental health education, programming, and legislation.",
-            "coordinates" : "37.4320965,-122.1605481",
-            "media" : "ood1,ood2,ood3,ood4,ood5,ood6,ood7,ood8",
-            "hashtag" : "#OutoftheDarkness"
-        }
-    ],
+                {
+                "title" : "Black Lives Matter",
+                "about" : "#BLM is a call to action to the virulent anti-Black racism that permeates our society. It is rooted in the experiences of Black people in this country who actively resist our de-humanization.",
+                "coordinates" : "37.424428,-122.169929",
+                "media" : "blm1,blm2,blm3,blm4,blm5,blm6,blm7,blm8",
+                "hashtag" : "#BlackLivesMatter"
+                },
+                
+                {
+                "title" : "Who's Teaching Us",
+                "about" : "Who’s Teaching Us is a rally to raise awareness for the need of faculty diversity and support for marginalized studies and community centers on campus.",
+                "coordinates" : "37.429492,-122.169581",
+                "media" : "wtu1,wtu2,wtu3,wtu4,wtu5,wtu6",
+                "hashtag" : "#StanfordWTU"
+                },
+                
+                {
+                "title" : "Fossil Free Stanford",
+                "about" : "Movement calling on Stanford University to freeze new fossil fuel investments and fully divest from fossil fuels within the next five years.",
+                "coordinates" : "37.427554,-122.169357",
+                "media" : "dfc1,dfc2,dfc3,dfc4,dfc5,dfc6,dfc7,dfc8",
+                "hashtag" : "#FossilFreeStanford"
+                },
+                
+                {
+                "title" : "Take Back The Night",
+                "about" : "Rally, march, and speakout against sexual violence on campus",
+                "coordinates" : "37.424428,-122.169929",
+                "media" : "tbn1,tbn2,tbn3,tbn4,tbn5,tbn6,tbn7",
+                "hashtag" : "#TakeBacktheNight"
+                },
+                
+                {
+                "title" : "Out of the Darkness",
+                "about" : "Out of the Darkness walks are approximately 5k walk events that fundraise and create awareness for suicide prevention and serve as a place for survivors of suicide loss and those suffering from mental illness to come together in support of continued suicide prevention and mental health education, programming, and legislation.",
+                "coordinates" : "37.4320965,-122.1605481",
+                "media" : "ood1,ood2,ood3,ood4,ood5,ood6,ood7,ood8",
+                "hashtag" : "#OutoftheDarkness"
+                }
+                ],
 }

@@ -8,17 +8,17 @@
 
 import UIKit
 import MapKit
+import Firebase
 
 @IBDesignable class StartScreenViewController: UIViewController, MKMapViewDelegate, UITableViewDataSource, UITableViewDelegate, CLLocationManagerDelegate
 {
     
-    // MARK - Controller
+    // Firebase event server
+    private let appServerURL =  NSURL (string:"https://radiant-torch-3623.firebaseio.com/events")
     
-    // CaptureEvent server location content
-    
-    /* ========= TODO: 1) Either change the url from data.json, or 2) use HTTP Request (or both?) ========= */
-    
-    private let appServerURL = NSBundle.mainBundle().URLForResource("data", withExtension: "json")
+    /* For the local database file:
+     private let appServerURL = NSBundle.mainBundle().URLForResource("data", withExtension: "json")
+     */
     
     // database that holds and fetches capture events from server
     private var database: CaptureEventDatabase?
@@ -32,12 +32,11 @@ import MapKit
     // zoom to country
     private var defaultZoom = MKCoordinateRegion()
     
-    /* expose revelant location */
+    /* expose event and user locations */
     @IBOutlet private weak var mapView: MKMapView!
     
-    /* expose relevant capture events */
+    /* expose relevant events */
     @IBOutlet private weak var captureEventsTable: UITableView!
-    
     
     /* Segmented control displaying 'nearby' and 'trending' */
     @IBOutlet private weak var captureEventDisplayTab: UISegmentedControl!
@@ -53,7 +52,7 @@ import MapKit
     }
     
     /* Capture events being displayed currently */
-    private var visibleCaptureEvents =  [CaptureEvent]()
+    var visibleCaptureEvents =  [CaptureEvent]()
         {
         didSet {
             print("Displaying visible capture events: \(visibleCaptureEvents)")
@@ -74,7 +73,7 @@ import MapKit
         let pin = MKPointAnnotation()
         pin.coordinate = CLLocationCoordinate2D(latitude: event.location.latitude,
                                                 longitude: event.location.longitude)
-        // set the attributes for this Map pin
+        // set the attributes for this Map pin, including distance from user
         pin.title = event.title + " " + getDistanceFromHereOrEmptyString(locationManager,
                                                                          latitude: event.location.latitude,
                                                                          longitude: event.location.longitude
@@ -112,6 +111,7 @@ import MapKit
         
         // TODO: get events from database
         // TODO: sort/filter them for nearby
+        // consider CoreData
         // return them
     }
     
@@ -122,6 +122,7 @@ import MapKit
         
         // TODO: develop scheme for trending
         // get/sort from database
+        // consider CoreData
         // return "trending" events
     }
     
@@ -146,31 +147,34 @@ import MapKit
     }
     
     // MARK: - UITableViewDataSource
+    // Next 3 methods are the heart of a dynamic table, get called on tableview.reloadData */
     
+    /* Capture event board cell identifier(s) */
     private struct CaptureBoard {
         
         // identifier of cells in CaptureBoard (captureEventsTable)
         static let CaptureEventCellIdentifier = "CaptureEvent"
     }
     
-    /* next 3 methods are the heart of a dynamic table, get called on tableview.reloadData */
+    /* Number of desired table sections */
     func numberOfSectionsInTableView(tableView: UITableView) -> Int
     {
         return 1
     }
     
+    /* Number of desired table rows */
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
         return visibleCaptureEvents.count
     }
     
-    
+    /* Action to perform for each cell in the specified table */
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
         let cell = tableView.dequeueReusableCellWithIdentifier(CaptureBoard.CaptureEventCellIdentifier, forIndexPath: indexPath)
         
         // configure the cell...
         let captureEvent = visibleCaptureEvents[indexPath.row]
-        
         cell.textLabel?.text = captureEvent.title
         cell.detailTextLabel?.text = captureEvent.about
         
@@ -207,6 +211,7 @@ import MapKit
         self.mapView.setRegion(region, animated: true)
     }
     
+    /* For formatting, get the user distance, or an empty string */
     func getDistanceFromHereOrEmptyString(manager: CLLocationManager, latitude: CLLocationDegrees, longitude: CLLocationDegrees ) -> String {
         let distance = distanceFromHereToLocation(locationManager, latitude: latitude, longitude: longitude)
         if distance != nil {
@@ -216,6 +221,7 @@ import MapKit
         return ""
     }
     
+    /* Calculate user current distance to specified coordinate */
     func distanceFromHereToLocation(manager: CLLocationManager, latitude: CLLocationDegrees, longitude: CLLocationDegrees ) -> String? {
         
         // get the distance in meters
@@ -232,6 +238,7 @@ import MapKit
         return "(" + String(format:"%.1f", distanceInMiles) + " mi)"
     }
     
+    /* zoom the mapView to the user's current location */
     func zoomToUserLocation(manager: CLLocationManager, didUpdateLocations locations: [CLLocation])
     {
         let location = locations.last
@@ -247,20 +254,24 @@ import MapKit
         self.mapView.setRegion(region, animated: true)
     }
     
+    /* Actions to perform for each update to user location */
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation])
     {
-        // zoom to user location only if 'nearby' tab selected
-//        if tabDisplay == "nearby" {
-//            zoomToUserLocation(manager, didUpdateLocations: locations)
-//        }
-        // self.locationManager.stopUpdatingLocation()
+        /* Fix zoom on user's current location
+         // zoom to user location only if 'nearby' tab selected
+         if tabDisplay == "nearby" {
+         zoomToUserLocation(manager, didUpdateLocations: locations)
+         }
+         self.locationManager.stopUpdatingLocation()
+         */
     }
     
+    /* Errors on getting/updating user location */
     func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
         print("Location errors: \(error.localizedDescription)")
     }
     
-    
+    /* App lifecycle method, actions to perform on memory overusage */
     override func didReceiveMemoryWarning()
     {
         super.didReceiveMemoryWarning()
@@ -271,10 +282,10 @@ import MapKit
     
     /* ask CaptureEventDatabase to setup an internal db
      * and download capture events from the specified server */
-    private func setDatabase(url: NSURL)
+    private func setDatabase(url: NSURL, viewController: StartScreenViewController)
     {
         database = CaptureEventDatabase()
-        database!.fetchAllCaptureEvents(url)
+        database!.fetchAllCaptureEventsFromFirebase(url, viewController: viewController)
         
     }
     
@@ -283,7 +294,7 @@ import MapKit
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        setDatabase(appServerURL!)
+        setDatabase(appServerURL!, viewController: self)
         
         defaultZoom = mapView.region // save map general zoom
         
@@ -304,21 +315,56 @@ import MapKit
         } else {
             visibleCaptureEvents = getTrendingCaptureEvents()
         }
+        
     }
+    
+    @IBOutlet var RiseButton: UILabel!
     
     override func viewWillAppear(animated: Bool) {
         print("Main screen will appear!")
+        setDatabase(appServerURL!, viewController: self)
+        
         self.navigationController?.setNavigationBarHidden(true, animated: false) // hide navbar
         
         let selectedRow = captureEventsTable.indexPathForSelectedRow
         if selectedRow != nil { // deselect selected row
             captureEventsTable.deselectRowAtIndexPath(selectedRow!, animated: true)
         }
+        
+        let tracker = GAI.sharedInstance().defaultTracker
+        tracker.set(kGAIScreenName, value: "Start Screen")
+        
+        let builder = GAIDictionaryBuilder.createScreenView()
+        tracker.send(builder.build() as [NSObject : AnyObject])
     }
+    
+    // MARK: - Google Analytics Methods
+    
+    @IBAction func AddEventButton(sender: AnyObject) {
+        let tracker = GAI.sharedInstance().defaultTracker
+        
+        tracker.send(GAIDictionaryBuilder.createEventWithCategory("Event Create", action: "New Event Pressed", label: " Screen Change", value: nil).build() as [NSObject : AnyObject])
+    }
+    
+    @IBAction func NearestButton(sender: AnyObject) {
+        let tracker = GAI.sharedInstance().defaultTracker
+        
+        tracker.send(GAIDictionaryBuilder.createEventWithCategory("Nearest Tab", action: "Nearest Tab Selected", label: "Tab Change", value: nil).build() as [NSObject : AnyObject])
+    }
+    
+    @IBAction func TrendingTab(sender: AnyObject) {
+        let tracker = GAI.sharedInstance().defaultTracker
+        
+        tracker.send(GAIDictionaryBuilder.createEventWithCategory("Trending Tab", action: "Trending Tab Selected", label: "Tab Change", value: nil).build() as [NSObject : AnyObject])
+    }
+    
+    
+    // MARK: - Navigation
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let destinationVC = segue.destinationViewController
         
+        // segue to Event Detail/Image Collection MVC, transfer selected event
         if let showEventVC = destinationVC as? CaptureDetailViewController {
             if let identifier = segue.identifier {
                 
@@ -332,6 +378,8 @@ import MapKit
                 default: break
                 }
             }
+            
+            // segue to Camera MVC, transfer relevant events
         } else if let addToEventVC = destinationVC as? CameraScreenViewController {
             if let identifier = segue.identifier {
                 switch identifier {
@@ -340,9 +388,23 @@ import MapKit
                 default: break
                 }
             }
+            
+            // segue to New Event MVC, transfer user location
         } else if let newEventVC = destinationVC as? NewEventViewController {
-            newEventVC.locationManager = self.locationManager
+            if let identifier = segue.identifier {
+                switch identifier {
+                case "Create New Event":
+                    guard let latitude = (locationManager.location?.coordinate.latitude),
+                        let longitude = (locationManager.location?.coordinate.longitude) else { break }
+                    newEventVC.location = (Double(latitude), Double(longitude))
+                    print("The coordinates sent to the new event screen were: \(locationManager.location?.coordinate.latitude),\(locationManager.location?.coordinate.longitude)")
+                default:
+                    break
+                }
+            }
         }
+        
     }
+    
 }
 

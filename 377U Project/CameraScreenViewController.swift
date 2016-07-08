@@ -55,16 +55,23 @@ import AVFoundation
         } catch {
             print("Camera error")
         }
+        let tracker = GAI.sharedInstance().defaultTracker
+        tracker.set(kGAIScreenName, value: "Camera Screen")
+        
+        let builder = GAIDictionaryBuilder.createScreenView()
+        tracker.send(builder.build() as [NSObject : AnyObject])
+
         
     }
     
+    /* If image was successfully taken, segue to review screen */
     private var takenImage: UIImage? {
         didSet {
             performSegueWithIdentifier(Storyboard.ImageTakenIdentifier, sender: self)
         }
     }
     
-    
+    /* Surface the raw user-taken camera image */
     private func didPressTakePhoto(){
         
         if let videoConnection = stillImageOutput?.connectionWithMediaType(AVMediaTypeVideo){
@@ -88,72 +95,12 @@ import AVFoundation
         
     }
     
-    /*
-    private var didTakePhoto = Bool()
-    
-    private func didPressTakeAnother(){
-        if didTakePhoto == true{
-            // tempImageView.hidden = true
-            didTakePhoto = false
-            
-        }
-        else{
-            captureSession?.startRunning()
-            didTakePhoto = true
-            didPressTakePhoto()
-            
-        }
-        
-    }
-    */
-    
+    /* Camera button without Analytics listener
     @IBAction private func takePicture(sender: UIButton) {
         didPressTakePhoto()
     }
-    
-    
-    /*
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        
-    }
     */
     
-    /*
-    /* Rise button action */
-    @IBAction func touchedRiseButton(sender: AnyObject) {
-        
-        // if first time touching Rise button
-        if didTouchRiseButton == false {
-            didTouchRiseButton = true
-            
-            // fade help labels
-            UILabel.transitionWithView(
-                helpLabel,
-                duration: 0.25,
-                options: [.TransitionCrossDissolve], animations:
-                {
-                    self.helpLabel.text = (rand() % 2 == 0) ? self.helpLabel.text! : " "
-                }, completion: nil
-            )
-            UILabel.transitionWithView(
-                picturePlaceholder,
-                duration: 0.25,
-                options: [.TransitionCrossDissolve], animations:
-                {
-                    self.picturePlaceholder.text = (rand() % 2 == 0) ? self.picturePlaceholder.text! : " "
-                }, completion: nil
-            )
-        }
-        
-        // take picture
-        let picker = UIImagePickerController()
-        picker.delegate = self
-        picker.sourceType = .Camera
-        
-        presentViewController(picker, animated: true, completion: nil)
-        
-    }
-    */
     
     // MARK: - Set model
     func setModel(events: [CaptureEvent]) {
@@ -166,9 +113,6 @@ import AVFoundation
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.setNavigationBarHidden(true, animated: false)
-        
-        
-        // Do any additional setup after loading the view.
     }
     
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
@@ -190,7 +134,6 @@ import AVFoundation
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     override func viewDidDisappear(animated: Bool) {
@@ -200,11 +143,12 @@ import AVFoundation
         return true
     }
     
+    // MARK: - Navigation
+    
+    // Segue identifiers
     private struct Storyboard {
         static let ImageTakenIdentifier = "Show Taken Photo"
     }
-    
-     // MARK: - Navigation
      
      override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let destinationvc = segue.destinationViewController as? PictureReviewScreenViewController {
@@ -220,4 +164,15 @@ import AVFoundation
         }
      }
     
+    // Camera button GAnalytics listener
+    @IBAction func RiseTakePhoto(sender: AnyObject) {
+        
+        // surface photo
+        didPressTakePhoto()
+        
+        // track camera button presses
+        let tracker = GAI.sharedInstance().defaultTracker
+        
+        tracker.send(GAIDictionaryBuilder.createEventWithCategory("Rise Button ", action: "Photo Taken", label: "Rise Button", value: nil).build() as [NSObject : AnyObject])
+    }
 }
